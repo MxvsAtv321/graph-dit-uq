@@ -1,10 +1,12 @@
 torch==2.3.0
-rdkit-pypi
-torch_geometric
+flash-attn==2.3.0
+torch-geometric==2.4.0
+rdkit==2023.9.5
 matplotlib
 pandas
 scikit-learn
 prolif
-codecarbon
-wandb
-dgl 
+codecarbon==2.3.4
+wandb==0.16.2
+dgl
+pytest 
