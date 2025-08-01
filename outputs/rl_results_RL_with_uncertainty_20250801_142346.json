@@ -1,0 +1,56 @@
+{
+  "config": {
+    "checkpoint_path": "checkpoints/graph_dit_10k.pt",
+    "lr": 0.0003,
+    "batch_size": 64,
+    "n_steps": 2048,
+    "n_epochs": 4,
+    "n_iterations": 20,
+    "use_uncertainty": true,
+    "uncertainty_bonus": 0.2,
+    "lambda_qed": 0.3,
+    "lambda_docking": 0.5,
+    "lambda_sa": 0.2,
+    "eval_frequency": 10,
+    "save_frequency": 20
+  },
+  "metrics": {
+    "rewards": [
+      0.546978235244751,
+      0.5450516939163208
+    ],
+    "pareto_coverage": [
+      0.01,
+      0.01
+    ],
+    "valid_molecules": [],
+    "unique_molecules": [],
+    "best_molecules": [
+      {
+        "smiles": "CCO",
+        "valid": true,
+        "qed": 0.4068079656553945,
+        "sa_score": 1.0,
+        "docking_score": -14.955124134870768,
+        "uncertainty": 0.14715124098719198
+      },
+      {
+        "smiles": "CCO",
+        "valid": true,
+        "qed": 0.4068079656553945,
+        "sa_score": 1.0,
+        "docking_score": -13.733579691061692,
+        "uncertainty": 0.036065559356904406
+      }
+    ]
+  },
+  "final_evaluation": {
+    "validity_rate": 1.0,
+    "pareto_percentage": 0.001,
+    "n_pareto": 1,
+    "mean_qed": 0.4068079656553945,
+    "mean_docking": -8.573198917618768,
+    "mean_sa": 1.0
+  },
+  "run_name": "RL_with_uncertainty_20250801_142346"
+}

@@ -1,0 +1,21 @@
+{
+  "config": {
+    "checkpoint_path": "checkpoints/graph_dit_10k.pt",
+    "lr": 0.0003,
+    "batch_size": 64,
+    "n_steps": 2048,
+    "n_epochs": 4,
+    "n_iterations": 3,
+    "use_uncertainty": true,
+    "uncertainty_bonus": 0.1,
+    "lambda_qed": 0.3,
+    "lambda_docking": 0.5,
+    "lambda_sa": 0.2,
+    "eval_frequency": 10,
+    "save_frequency": 20
+  },
+  "metrics": {
+    "rewards": [],
+    "pareto_coverage": [],
+    "valid_molecules": [],
+    "unique_molecules": 
