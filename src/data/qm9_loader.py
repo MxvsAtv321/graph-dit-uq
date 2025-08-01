@@ -17,7 +17,7 @@ def prepare_qm9_subset(fraction=0.05, seed=42):
     
     if processed_path.exists():
         logger.info(f"Loading cached QM9 subset from {processed_path}")
-        return torch.load(processed_path)
+        return torch.load(processed_path, weights_only=False)
     
     logger.info("Downloading full QM9 dataset...")
     # Download full QM9
@@ -29,7 +29,7 @@ def prepare_qm9_subset(fraction=0.05, seed=42):
     subset = [dataset[i] for i in indices]
     
     # Save processed
-    torch.save(subset, processed_path)
+    torch.save(subset, processed_path, _use_new_zipfile_serialization=False)
     logger.info(f"Saved {len(subset)} molecules to {processed_path}")
     return subset
 

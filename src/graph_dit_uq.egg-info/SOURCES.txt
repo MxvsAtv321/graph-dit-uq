@@ -1,6 +1,8 @@
 LICENSE
 README.md
 setup.py
+src/data/__init__.py
+src/data/qm9_loader.py
 src/graph_dit_uq.egg-info/PKG-INFO
 src/graph_dit_uq.egg-info/SOURCES.txt
 src/graph_dit_uq.egg-info/dependency_links.txt

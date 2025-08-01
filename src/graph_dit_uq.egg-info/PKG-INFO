@@ -16,6 +16,8 @@ Requires-Dist: codecarbon>=2.3.4
 Requires-Dist: wandb>=0.16.2
 Requires-Dist: dgl
 Requires-Dist: pytest
+Requires-Dist: tqdm
+Requires-Dist: numpy
 Dynamic: license-file
 Dynamic: requires-dist
 Dynamic: requires-python
