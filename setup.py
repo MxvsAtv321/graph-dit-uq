@@ -20,5 +20,7 @@ setup(
         "wandb>=0.16.2",
         "dgl",
         "pytest",
+        "tqdm",
+        "numpy",
     ],
 ) 

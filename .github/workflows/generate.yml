@@ -1,0 +1,105 @@
+name: Generate Molecules
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Daily at midnight
+  workflow_dispatch:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  generate:
+    if: |
+      github.event_name == 'schedule' || 
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'pull_request' && contains(github.event.label.name, 'run-10k'))
+    
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ hashFiles('docker/Dockerfile') }}
+      
+      - name: Build Docker image
+        run: |
+          docker buildx build \
+            --cache-from type=local,src=/tmp/.buildx-cache \
+            --cache-to type=local,dest=/tmp/.buildx-cache \
+            -t graph-dit-uq:latest -f docker/Dockerfile .
+      
+      - name: Run fine-tuning (small test)
+        env:
+          WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
+        run: |
+          docker run --gpus all \
+            -v ${{ github.workspace }}:/workspace \
+            -w /workspace \
+            -e WANDB_API_KEY=${{ secrets.WANDB_API_KEY }} \
+            graph-dit-uq:latest \
+            python scripts/finetune_graph_dit.py \
+              --fraction 0.01 \
+              --epochs 1 \
+              --batch_size 64
+      
+      - name: Run generation (small test)
+        run: |
+          docker run --gpus all \
+            -v ${{ github.workspace }}:/workspace \
+            -w /workspace \
+            graph-dit-uq:latest \
+            python scripts/generate_10k.py \
+              --checkpoint_path checkpoints/graph_dit_10k.pt \
+              --n_molecules 100 \
+              --batch_size 16
+      
+      - name: Generate Pareto plot
+        run: |
+          docker run \
+            -v ${{ github.workspace }}:/workspace \
+            -w /workspace \
+            graph-dit-uq:latest \
+            python scripts/plot_pareto_teaser.py \
+              --results_path outputs/results_10k.pkl \
+              --update_readme
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: generation-results
+          path: |
+            screenshots/early_pareto.png
+            outputs/results_10k.pkl
+            checkpoints/graph_dit_10k.pt
+            carbon_emissions.csv
+      
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## 🧪 Generation Test Results
+            
+            ✅ **Fine-tuning completed** - Model trained on QM9 subset
+            ✅ **Generation completed** - 100 molecules generated
+            ✅ **Pareto plot generated** - Early results visualization
+            ✅ **Artifacts uploaded** - Results available for download
+            
+            **Next steps:**
+            - Review generated molecules in \`outputs/results_10k.pkl\`
+            - Check Pareto plot in \`screenshots/early_pareto.png\`
+            - Scale up to full 10k generation for production
+            
+            *This was triggered by the \`run-10k\` label.*`
+            }) 

@@ -9,4 +9,6 @@ prolif
 codecarbon==2.3.4
 wandb==0.16.2
 dgl
-pytest 
+pytest
+tqdm
+numpy 
