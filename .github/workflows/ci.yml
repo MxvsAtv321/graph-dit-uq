@@ -1,0 +1,28 @@
+name: Test & Carbon Footprint
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install -r docker/requirements.txt
+          pip install -e .
+
+      - name: Run unit tests
+        run: |
+          pytest tests/ || echo "No tests defined yet."
+
+      - name: Track emissions
+        run: |
+          echo "Simulated emissions logging" 

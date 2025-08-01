@@ -1,0 +1,10 @@
+torch==2.3.0
+rdkit-pypi
+torch_geometric
+matplotlib
+pandas
+scikit-learn
+prolif
+codecarbon
+wandb
+dgl 
