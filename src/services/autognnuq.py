@@ -25,7 +25,7 @@ class PredictionRequest(BaseModel):
     n_samples: int = 5
 
 class PredictionResponse(BaseModel):
-    predictions: List[Dict[str, float]]
+    predictions: List[Dict[str, Any]]
     metadata: Dict[str, Any]
 
 class HealthResponse(BaseModel):
