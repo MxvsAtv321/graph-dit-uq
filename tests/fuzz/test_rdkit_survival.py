@@ -65,7 +65,7 @@ REDTEAM_SMILES = [
 ]
 
 
-def test_smiles_parsing_safety(smiles, timeout=5):
+def check_smiles_parsing_safety(smiles, timeout=5):
     """
     Test if SMILES parsing is safe with timeout.
     
@@ -143,7 +143,7 @@ def test_rdkit_survival(smiles):
     Args:
         smiles: Pathological SMILES string
     """
-    result = test_smiles_parsing_safety(smiles, timeout=10)
+    result = check_smiles_parsing_safety(smiles, timeout=10)
     
     # Assert that RDKit doesn't crash or hang
     assert not result['timeout'], f"RDKit timed out on SMILES: {smiles}"
@@ -166,7 +166,7 @@ def test_batch_processing_safety():
     
     results = []
     for i, smiles in enumerate(REDTEAM_SMILES):
-        result = test_smiles_parsing_safety(smiles, timeout=5)
+        result = check_smiles_parsing_safety(smiles, timeout=5)
         result['index'] = i
         results.append(result)
     
@@ -222,7 +222,7 @@ if __name__ == "__main__":
     print("Running RDKit survival tests...")
     
     for smiles in REDTEAM_SMILES:
-        result = test_smiles_parsing_safety(smiles)
+        result = check_smiles_parsing_safety(smiles, timeout=5)
         print(f"SMILES: {smiles}")
         print(f"  Result: {result}")
         print()
