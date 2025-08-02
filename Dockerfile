@@ -19,7 +19,8 @@ RUN pip install --no-cache-dir \
     seaborn \
     requests \
     pyyaml \
-    rdkit-pypi
+    rdkit-pypi \
+    wandb
 
 # Create working directory
 WORKDIR /app

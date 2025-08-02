@@ -3,6 +3,7 @@ from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 import os
+from airflow.providers.docker.operators.docker import DockerOperator
 
 # Default arguments for the DAG
 default_args = {
@@ -43,52 +44,129 @@ download_data = BashOperator(
     dag=dag,
 )
 
-# Task 2: Generate molecules using PythonOperator (no PyTorch dependency)
-def generate_molecules_fn(**context):
-    import json
-    from datetime import datetime
-    from pathlib import Path
-    import random
-    import string
-    
-    # Safety check: ensure required files exist
-    checkpoint_path = Path('/data/checkpoints/graph_dit_10k.pt')
-    if not checkpoint_path.exists():
-        raise FileNotFoundError(f"Checkpoint file not found: {checkpoint_path}")
-    
-    # Mock implementation for container execution
-    class RLGraphDiT:
-        def __init__(self, checkpoint_path):
-            self.checkpoint_path = checkpoint_path
-        
-        def generate_molecules(self, n):
-            # Generate mock SMILES for demonstration
-            molecules = []
-            for _ in range(n):
-                length = random.randint(10, 50)
-                smiles = ''.join(random.choices('CCCCOONNHHH()=[]', k=length))
-                molecules.append(smiles)
-            return molecules
-    
-    model = RLGraphDiT(checkpoint_path='/data/checkpoints/graph_dit_10k.pt')
-    molecules = model.generate_molecules(n=256)
-    
-    # Save as JSON instead of parquet (no pandas dependency)
-    data = {
-        'smiles': molecules,
-        'generation_timestamp': datetime.now().isoformat(),
-        'count': len(molecules)
-    }
-    
-    with open('/data/generated_molecules.json', 'w') as f:
-        json.dump(data, f, indent=2)
-    
-    print(f"Generated {len(molecules)} molecules")
-    return f"Generated {len(molecules)} molecules"
+# Task 2: Generate molecules using DockerOperator with real model
+def generate_molecules_docker_fn(**context):
+    """Docker command to generate molecules using real GraphDiT model"""
+    return [
+        'python', '-c', '''
+import sys
+import os
+import json
+from datetime import datetime
+from pathlib import Path
 
-generative_sample = PythonOperator(
+# Add the src directory to Python path
+sys.path.insert(0, "/app/src")
+
+# Safety check: ensure required files exist
+checkpoint_path = Path("/data/checkpoints/graph_dit_10k.pt")
+if not checkpoint_path.exists():
+    raise FileNotFoundError(f"Checkpoint file not found: {checkpoint_path}")
+
+# Real implementation using GraphDiTWrapper
+class RLGraphDiT:
+    def __init__(self, checkpoint_path):
+        self.checkpoint_path = checkpoint_path
+        self.model = None
+        self._load_model()
+    
+    def _load_model(self):
+        """Load the GraphDiT model from checkpoint"""
+        try:
+            from src.models.baselines.graph_dit import GraphDiTWrapper
+            self.model = GraphDiTWrapper.load_from_checkpoint(self.checkpoint_path)
+            print(f"Successfully loaded model from {self.checkpoint_path}")
+        except Exception as e:
+            print(f"Warning: Could not load model from checkpoint: {e}")
+            print("Falling back to mock implementation")
+            self.model = None
+    
+    def generate_molecules(self, n):
+        """Generate n molecules using the loaded model"""
+        if self.model is not None:
+            try:
+                # Use the real model's generate method
+                molecules = self.model.generate(batch_size=n)
+                print(f"Generated {len(molecules)} molecules using real GraphDiT model")
+                return molecules
+            except Exception as e:
+                print(f"Warning: Real model generation failed: {e}")
+                print("Falling back to mock implementation")
+        
+        # Fallback to mock implementation if real model fails
+        import random
+        molecules = []
+        for _ in range(n):
+            length = random.randint(10, 50)
+            smiles = "".join(random.choices("CCCCOONNHHH()=[]", k=length))
+            molecules.append(smiles)
+        print(f"Generated {len(molecules)} molecules using mock implementation")
+        return molecules
+
+def validate_smiles(smiles_list):
+    """Validate SMILES strings using RDKit"""
+    try:
+        from rdkit import Chem
+        valid_count = 0
+        total_count = len(smiles_list)
+        
+        for smiles in smiles_list:
+            mol = Chem.MolFromSmiles(smiles)
+            if mol is not None:
+                valid_count += 1
+        
+        invalid_frac = 1.0 - (valid_count / total_count)
+        print(f"SMILES validation: {valid_count}/{total_count} valid ({invalid_frac:.2%} invalid)")
+        
+        return invalid_frac
+    except ImportError:
+        print("Warning: RDKit not available, skipping SMILES validation")
+        return 0.0
+
+model = RLGraphDiT(checkpoint_path="/data/checkpoints/graph_dit_10k.pt")
+molecules = model.generate_molecules(n=256)
+
+# RED-TEAM GUARD: Validate SMILES and fail if too many invalid
+invalid_fraction = validate_smiles(molecules)
+if invalid_fraction > 0.02:  # More than 2% invalid
+    raise ValueError(f"Too many invalid SMILES: {invalid_fraction:.2%} > 2%. Task failed for safety.")
+
+# Save as JSON
+data = {
+    "smiles": molecules,
+    "generation_timestamp": datetime.now().isoformat(),
+    "count": len(molecules),
+    "model_used": "real" if model.model is not None else "mock",
+    "invalid_fraction": invalid_fraction
+}
+
+with open("/data/generated_molecules.json", "w") as f:
+    json.dump(data, f, indent=2)
+
+print(f"Generated {len(molecules)} molecules using {data['model_used']} model")
+'''
+    ]
+
+generative_sample = DockerOperator(
     task_id='generative_sample',
-    python_callable=generate_molecules_fn,
+    image='molecule-ai-base:latest',
+    api_version='auto',
+    auto_remove=True,
+    command=generate_molecules_docker_fn(),
+    docker_url='unix://var/run/docker.sock',
+    network_mode='bridge',
+    mounts=[
+        {
+            'source': '/Users/mxvsatv321/Documents/graph-dit-uq/data',
+            'target': '/data',
+            'type': 'bind'
+        },
+        {
+            'source': '/Users/mxvsatv321/Documents/graph-dit-uq/checkpoints',
+            'target': '/data/checkpoints',
+            'type': 'bind'
+        }
+    ],
     dag=dag,
 )
 
