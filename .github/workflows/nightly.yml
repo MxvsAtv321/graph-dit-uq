@@ -18,10 +18,10 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@f43a0e5f
       
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@7f4fc3e2
       with:
         python-version: '3.9'
         
@@ -101,7 +101,7 @@ jobs:
         "
         
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@ff15f030
       with:
         name: stage1-results-${{ matrix.execution_date }}
         path: |

@@ -17,13 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@f43a0e5f
       
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@885d1462
       
       - name: Cache Docker layers
-        uses: actions/cache@v3
+        uses: actions/cache@2f8e5420
         with:
           path: /tmp/.buildx-cache
           key: ${{ runner.os }}-buildx-${{ hashFiles('docker/Dockerfile') }}
@@ -71,7 +71,7 @@ jobs:
               --update_readme
       
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@ff15f030
         with:
           name: generation-results
           path: |
@@ -82,7 +82,7 @@ jobs:
       
       - name: Comment on PR
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v6
+        uses: actions/github-script@d7906e4a
         with:
           script: |
             github.rest.issues.createComment({
