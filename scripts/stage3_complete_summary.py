@@ -5,7 +5,6 @@ Display final achievements including λ-sweep ablation study
 """
 
 
-
 def display_complete_summary():
     """Display complete Stage 3 summary with λ-sweep results"""
 

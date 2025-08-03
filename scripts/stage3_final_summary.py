@@ -5,7 +5,6 @@ Display completion status and next steps
 """
 
 
-
 def display_stage3_completion():
     """Display Stage 3 completion summary"""
 

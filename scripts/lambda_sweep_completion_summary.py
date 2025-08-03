@@ -5,7 +5,6 @@ Final summary of the ablation study results
 """
 
 
-
 def display_lambda_sweep_completion():
     """Display λ-sweep completion summary"""
 
