@@ -139,7 +139,7 @@ def test_airflow_variables():
             try:
                 value = Variable.get(var_name)
                 print(f"✅ {var_name}: {value}")
-            except:
+            except Exception:
                 missing_vars.append(var_name)
                 print(f"❌ {var_name}: Missing")
 

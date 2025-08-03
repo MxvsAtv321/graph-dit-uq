@@ -26,7 +26,7 @@ def quick_analysis():
                 df = pd.read_parquet(path)
                 print(f"✅ Loaded data from: {path}")
                 break
-            except:
+            except (FileNotFoundError, pd.errors.EmptyDataError):
                 continue
 
         if df is None:

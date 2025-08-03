@@ -13,9 +13,9 @@ from src.rl.molecular_ppo import MolecularPPO, RLGraphDiT
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
 import random
+
+logger = logging.getLogger(__name__)
 
 # Set random seeds for reproducibility
 

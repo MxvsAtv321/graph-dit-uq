@@ -172,7 +172,8 @@ def adaptive_hypervolume_reward(
 
         # Uncertainty bonus for exploration
         if isinstance(sigma, dict):
-            uncertainty_bonus = alpha * torch.sqrt(sum(s**2 for s in sigma.values()))
+            sigma_values = torch.tensor(list(sigma.values()))
+            uncertainty_bonus = alpha * torch.sqrt(torch.sum(sigma_values ** 2))
         else:
             uncertainty_bonus = alpha * torch.sqrt(
                 torch.sum(torch.tensor(list(sigma.values())) ** 2)

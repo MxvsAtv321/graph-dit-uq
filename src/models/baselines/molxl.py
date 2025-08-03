@@ -26,7 +26,7 @@ class MolXLWrapper(BaseModelWrapper):
         batch_size = 32
         data = {
             "x": torch.randn(batch_size, 1024).to(self.device),
-            "y": torch.randn(batch_size, 1).to(self.device),
+            "y": torch.randn(batch_size, 256).to(self.device),  # Match output size
         }
         return data
 
