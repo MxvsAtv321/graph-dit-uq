@@ -23,4 +23,4 @@ setup(
         "tqdm",
         "numpy",
     ],
-) 
+)

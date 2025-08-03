@@ -15,6 +15,6 @@ REWARD_REGISTRY = {
 __all__ = [
     "REWARD_REGISTRY",
     "adaptive_hypervolume_reward",
-    "latent_pareto_energy_reward", 
-    "sucb_pareto_dominance_reward"
-] 
+    "latent_pareto_energy_reward",
+    "sucb_pareto_dominance_reward",
+]

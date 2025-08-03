@@ -1,0 +1,198 @@
+Graph DiT-UQ Project Sanity Report
+==================================
+Generated: 2025-08-03
+Repository: v0.4.0-md-validation (to be created)
+Status: PRE-PUBLICATION REVIEW
+
+EXECUTIVE SUMMARY
+=================
+The Graph DiT-UQ project demonstrates a functional physics-ML integration pipeline
+with successful Stage 4 MD validation. However, significant repository hygiene and
+code quality issues must be addressed before publication. Overall risk level: MEDIUM.
+
+CRITICAL RISKS (Must Fix Before Publication)
+============================================
+
+1. LARGE FILES IN GIT HISTORY (Severity: CRITICAL, Owner: DevOps)
+   - Files >10MB: checkpoints/graph_dit_10k.pt (76MB), logs/dag_processor_manager/dag_processor_manager.log (6MB)
+   - Impact: Repository cloning will fail on slow connections, violates Git best practices
+   - Fix: Move to S3 with Git LFS pointers or remove from history entirely
+   - Command: git filter-branch --tree-filter 'rm -f checkpoints/graph_dit_10k.pt' HEAD
+
+2. MISSING .dockerignore (Severity: CRITICAL, Owner: DevOps)
+   - Impact: Docker builds include unnecessary files, increased image size, potential secrets exposure
+   - Fix: Create .dockerignore with patterns: __pycache__/, *.pyc, .env, logs/, venv/, *.pt
+   - Risk: Build artifacts and logs could contain sensitive information
+
+3. CODE QUALITY ISSUES (Severity: HIGH, Owner: ML)
+   - 279 ruff violations across codebase
+   - Black formatting inconsistencies in multiple files
+   - Impact: Code review difficulty, inconsistent style, potential merge conflicts
+   - Fix: ruff check --fix . && black -l 88 .
+   - Risk: Code maintainability and potential runtime issues
+
+HIGH RISKS (Should Fix Before Publication)
+==========================================
+
+4. AIRFLOW LOG FILES IN GIT (Severity: HIGH, Owner: DevOps)
+   - Found: 6MB+ of Airflow log files tracked in Git
+   - Impact: Repository bloat, potential sensitive information in logs
+   - Fix: Add logs/ to .gitignore and remove from tracking
+   - Risk: Logs may contain sensitive information or large file sizes
+
+5. INCOMPLETE .gitignore (Severity: HIGH, Owner: DevOps)
+   - Missing: *.pt, .pytest_cache, *.DS_Store, logs/, venv/, __pycache__/
+   - Impact: Accidental commits of large files, build artifacts, system files
+   - Fix: Add missing patterns to .gitignore
+   - Risk: Repository bloat and potential secrets exposure
+
+6. CI/CD IMAGE PINNING (Severity: MEDIUM, Owner: DevOps)
+   - Current: Uses @v3, @v4 tags instead of digests
+   - Impact: Potential supply chain attacks, non-reproducible builds
+   - Fix: Pin to specific SHA256 digests
+   - Risk: Security vulnerabilities from compromised base images
+
+MEDIUM RISKS (Should Address)
+=============================
+
+7. MISSING TYPE HINTS (Severity: MEDIUM, Owner: ML)
+   - Impact: Reduced code maintainability, potential runtime errors
+   - Fix: Add mypy type hints to all public APIs
+   - Risk: Type-related bugs in production
+
+8. MISSING ENVIRONMENT LOCK (Severity: MEDIUM, Owner: ML)
+   - Impact: Non-reproducible environments, dependency conflicts
+   - Fix: Create requirements-lock.txt
+   - Risk: Different results on different machines
+
+9. LARGE SCREENSHOT FILES (Severity: LOW, Owner: Docs)
+    - Found: screenshots/early_pareto.png (664K), screenshots/uncertainty_pareto.png (792K)
+    - Impact: Repository bloat, slow cloning
+    - Fix: Move to S3 or optimize image sizes
+    - Risk: Repository size growth
+
+10. MISSING MANUSCRIPT STRUCTURE (Severity: LOW, Owner: Docs)
+    - Impact: No proper LaTeX manuscript for publication
+    - Fix: Create paper/main.tex and supporting files
+    - Risk: Publication delays
+
+LOW RISKS (Nice to Have)
+========================
+
+11. MISSING SECURITY.md (Severity: LOW, Owner: DevOps)
+    - Impact: No clear security disclosure process
+    - Fix: Create SECURITY.md with disclosure policy
+    - Risk: Security issues not reported properly
+
+12. MISSING API DOCUMENTATION (Severity: LOW, Owner: ML)
+    - Impact: Difficult for others to use the codebase
+    - Fix: Add comprehensive docstrings and type hints
+    - Risk: Reduced adoption and community contribution
+
+13. TEST WARNINGS (Severity: LOW, Owner: ML)
+    - Found: 10 warnings in test suite (torch size mismatches, AHI reward issues)
+    - Impact: Potential runtime issues, unclear test behavior
+    - Fix: Address tensor size mismatches and reward computation issues
+    - Risk: Silent failures in production
+
+SUBSYSTEM-SPECIFIC RISKS
+========================
+
+Docker & Containerization:
+- Missing .dockerignore (CRITICAL)
+- No non-root UID drop in Dockerfiles (MEDIUM)
+- No container vulnerability scanning (MEDIUM)
+
+Airflow & Pipeline:
+- Log files in Git (HIGH)
+- Missing error handling in some DAGs (MEDIUM)
+- No resource limits specified (LOW)
+
+Data & Artifacts:
+- Large files in Git history (CRITICAL)
+- No data versioning strategy (MEDIUM)
+- Missing data validation (MEDIUM)
+
+Testing & CI:
+- 35/36 tests passing (97% pass rate) ✅
+- Missing integration tests for full pipeline (MEDIUM)
+- No performance benchmarks (LOW)
+
+Security:
+- No secrets scanning (MEDIUM)
+- No dependency vulnerability scanning (MEDIUM)
+- Missing security disclosure policy (LOW)
+
+RECOMMENDED FIX SEQUENCE
+========================
+
+Phase 1 (Critical - Must Fix):
+1. Create .dockerignore
+2. Move large files to S3
+3. Fix .gitignore
+4. Remove log files from Git
+
+Phase 2 (High Priority):
+1. Apply Black formatting
+2. Fix ruff violations
+3. Pin CI images to digests
+4. Create environment lock file
+
+Phase 3 (Medium Priority):
+1. Add comprehensive error handling
+2. Create SECURITY.md
+3. Add API documentation
+4. Set up container scanning
+
+Phase 4 (Low Priority):
+1. Optimize figure sizes
+2. Create LaTeX manuscript
+3. Add performance monitoring
+4. Create release notes
+
+AUTOMATED FIX COMMANDS
+======================
+
+# Phase 1 Fixes
+echo "*.pyc\n__pycache__/\n.env\nlogs/\nvenv/\n*.pt\n.pytest_cache\n*.DS_Store" > .dockerignore
+git filter-branch --tree-filter 'rm -f checkpoints/graph_dit_10k.pt' HEAD
+echo "*.pt\n.pytest_cache\n*.DS_Store\nlogs/\nvenv/\n__pycache__/" >> .gitignore
+git rm --cached logs/ -r
+
+# Phase 2 Fixes
+source venv/bin/activate && black -l 88 .
+source venv/bin/activate && ruff check --fix .
+source venv/bin/activate && pip freeze > requirements-lock.txt
+
+# Phase 3 Fixes
+echo "# Security Policy\n\nReport security issues to: security@example.com" > SECURITY.md
+
+ESTIMATED EFFORT
+================
+- Critical fixes: 2-4 hours
+- High priority fixes: 4-6 hours  
+- Medium priority fixes: 6-8 hours
+- Low priority fixes: 4-6 hours
+- Total: 16-24 hours
+
+STAGE SUMMARY TABLE
+===================
+| Stage | Success Criteria | Current Status | Blocking Issues | Owner |
+|-------|-----------------|----------------|-----------------|-------|
+| Stage 1 | Data preprocessing | ✅ Working | None | ML |
+| Stage 2 | Model training | ✅ Working | None | ML |
+| Stage 3 | RL optimization | ✅ Working | None | ML |
+| Stage 4 | MD validation | ✅ Working | None | ML |
+| CI/CD | Automated testing | ⚠️ Partial | Image pinning | DevOps |
+| Docs | README accuracy | ⚠️ Partial | Command validation | Docs |
+| Security | Vulnerability scan | ❌ Missing | Container scanning | DevOps |
+
+CONCLUSION
+==========
+The Graph DiT-UQ project has a solid technical foundation with successful
+physics-ML integration demonstrated through Stage 4 MD validation. However,
+significant repository hygiene and code quality issues must be addressed
+before publication. The critical and high-priority fixes can be completed
+within 1-2 days, making the project ready for publication review.
+
+Overall Assessment: READY WITH FIXES REQUIRED 

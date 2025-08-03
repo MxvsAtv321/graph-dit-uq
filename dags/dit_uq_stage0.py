@@ -7,31 +7,31 @@ import os
 
 # Default arguments for the DAG
 default_args = {
-    'owner': 'molecule-ai-team',
-    'depends_on_past': False,
-    'email_on_failure': False,
-    'email_on_retry': False,
-    'retries': 1,
-    'retry_delay': timedelta(minutes=5),
+    "owner": "molecule-ai-team",
+    "depends_on_past": False,
+    "email_on_failure": False,
+    "email_on_retry": False,
+    "retries": 1,
+    "retry_delay": timedelta(minutes=5),
 }
 
 # Initialize the DAG
 dag = DAG(
-    'dit_uq_stage0',
+    "dit_uq_stage0",
     default_args=default_args,
-    description='Stage 0 pipeline for Graph DiT-UQ molecular generation with uncertainty quantification',
+    description="Stage 0 pipeline for Graph DiT-UQ molecular generation with uncertainty quantification",
     schedule_interval=None,
     start_date=datetime(2025, 8, 3),
     catchup=False,
-    tags=['molecular-ai', 'stage0', 'dit-uq'],
+    tags=["molecular-ai", "stage0", "dit-uq"],
 )
 
 # Get the Airflow data directory from environment
-airflow_data = os.environ.get('AIRFLOW_DATA', '/data')
+airflow_data = os.environ.get("AIRFLOW_DATA", "/data")
 
 # Task 1: Copy existing data (since qm9_subset.pt already exists)
 download_data = BashOperator(
-    task_id='download_data',
+    task_id="download_data",
     bash_command="""
     mkdir -p /data && \
     if [ -f /data/qm9_subset.pt ]; then
@@ -44,33 +44,34 @@ download_data = BashOperator(
     dag=dag,
 )
 
+
 # Task 2: Generate molecules using RLGraphDiT
 def generate_molecules_fn(**context):
-    import torch
     import pandas as pd
     from src.models.rl_wrapper import RLGraphDiT
-    
+
     # Load the model
-    model = RLGraphDiT(checkpoint_path='/data/checkpoints/graph_dit_10k.pt')
-    
+    model = RLGraphDiT(checkpoint_path="/data/checkpoints/graph_dit_10k.pt")
+
     # Generate molecules
     molecules = model.generate_molecules(n=256)
-    
+
     # Save to intermediate file
-    df = pd.DataFrame({
-        'smiles': molecules,
-        'generation_timestamp': datetime.now()
-    })
-    df.to_parquet('/data/generated_molecules.parquet', index=False)
-    
+    df = pd.DataFrame({"smiles": molecules, "generation_timestamp": datetime.now()})
+    df.to_parquet("/data/generated_molecules.parquet", index=False)
+
     return f"Generated {len(molecules)} molecules"
 
+
 generative_sample = DockerOperator(
-    task_id='generative_sample',
-    image='molecule-ai-base:latest',
-    api_version='auto',
+    task_id="generative_sample",
+    image="molecule-ai-base:latest",
+    api_version="auto",
     auto_remove=True,
-    command=['python', '-c', '''
+    command=[
+        "python",
+        "-c",
+        """
 import torch
 import pandas as pd
 from datetime import datetime
@@ -107,26 +108,24 @@ df = pd.DataFrame({
 })
 df.to_parquet('/data/generated_molecules.parquet', index=False)
 print(f"Generated {len(molecules)} molecules")
-'''],
-    docker_url='unix://var/run/docker.sock',
-    network_mode='bridge',
-    mounts=[
-        {
-            'source': '/data',
-            'target': '/data',
-            'type': 'bind'
-        }
+""",
     ],
+    docker_url="unix://var/run/docker.sock",
+    network_mode="bridge",
+    mounts=[{"source": "/data", "target": "/data", "type": "bind"}],
     dag=dag,
 )
 
 # Task 3: UQ prediction using AutoGNNUQ service
 uq_predict = DockerOperator(
-    task_id='uq_predict',
-    image='molecule-ai-base:latest',
-    api_version='auto',
+    task_id="uq_predict",
+    image="molecule-ai-base:latest",
+    api_version="auto",
     auto_remove=True,
-    command=['python', '-c', '''
+    command=[
+        "python",
+        "-c",
+        """
 import pandas as pd
 import numpy as np
 import requests
@@ -168,26 +167,24 @@ df['sigma'] = [p['sigma'] for p in all_predictions]
 # Save updated parquet
 df.to_parquet('/data/molecules_with_uq.parquet', index=False)
 print(f"Added UQ predictions for {len(df)} molecules")
-'''],
-    docker_url='unix://var/run/docker.sock',
-    network_mode='bridge',
-    mounts=[
-        {
-            'source': '/data',
-            'target': '/data',
-            'type': 'bind'
-        }
+""",
     ],
+    docker_url="unix://var/run/docker.sock",
+    network_mode="bridge",
+    mounts=[{"source": "/data", "target": "/data", "type": "bind"}],
     dag=dag,
 )
 
 # Task 4: Docking score calculation
 docking_score = DockerOperator(
-    task_id='docking_score',
-    image='molecule-ai-base:latest',
-    api_version='auto',
+    task_id="docking_score",
+    image="molecule-ai-base:latest",
+    api_version="auto",
     auto_remove=True,
-    command=['python', '-c', '''
+    command=[
+        "python",
+        "-c",
+        """
 import subprocess
 import sys
 from pathlib import Path
@@ -217,57 +214,54 @@ if result.returncode != 0:
     sys.exit(result.returncode)
 
 print("Docking scores calculated successfully")
-'''],
-    docker_url='unix://var/run/docker.sock',
-    network_mode='bridge',
-    mounts=[
-        {
-            'source': '/data',
-            'target': '/data',
-            'type': 'bind'
-        }
+""",
     ],
+    docker_url="unix://var/run/docker.sock",
+    network_mode="bridge",
+    mounts=[{"source": "/data", "target": "/data", "type": "bind"}],
     environment={
-        'INPUT_FILE': '/data/molecules_with_uq.parquet',
-        'OUTPUT_FILE': '/data/molecules_with_docking.parquet',
-        'RECEPTOR_PDB': '/data/receptors/DDR1_receptor.pdbqt'
+        "INPUT_FILE": "/data/molecules_with_uq.parquet",
+        "OUTPUT_FILE": "/data/molecules_with_docking.parquet",
+        "RECEPTOR_PDB": "/data/receptors/DDR1_receptor.pdbqt",
     },
     dag=dag,
 )
+
 
 # Task 5: Merge parquet files
 def merge_parquet_files(**context):
     import pandas as pd
     import glob
-    
+
     # Find all intermediate parquet files
-    parquet_files = glob.glob('/data/molecules_*.parquet')
-    
+    parquet_files = glob.glob("/data/molecules_*.parquet")
+
     # Read the most recent file (should have all columns)
     if parquet_files:
-        df = pd.read_parquet('/data/molecules_with_docking.parquet')
-        
+        df = pd.read_parquet("/data/molecules_with_docking.parquet")
+
         # Add metadata
-        df['pipeline_version'] = 'stage0_v1'
-        df['processing_date'] = datetime.now()
-        
+        df["pipeline_version"] = "stage0_v1"
+        df["processing_date"] = datetime.now()
+
         # Save final merged file
-        df.to_parquet('/data/stage0_results.parquet', index=False)
-        
+        df.to_parquet("/data/stage0_results.parquet", index=False)
+
         # Clean up intermediate files
         for file in parquet_files:
-            if file != '/data/stage0_results.parquet':
+            if file != "/data/stage0_results.parquet":
                 os.remove(file)
-        
+
         return f"Merged {len(df)} records into stage0_results.parquet"
     else:
         raise ValueError("No parquet files found to merge")
 
+
 parquet_merge = PythonOperator(
-    task_id='parquet_merge',
+    task_id="parquet_merge",
     python_callable=merge_parquet_files,
     dag=dag,
 )
 
 # Set task dependencies - tasks execute in order
-download_data >> generative_sample >> uq_predict >> docking_score >> parquet_merge 
+download_data >> generative_sample >> uq_predict >> docking_score >> parquet_merge

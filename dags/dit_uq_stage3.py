@@ -6,34 +6,35 @@ High-fidelity docking with physics-grounded reward functions for RL optimization
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.bash import BashOperator
-from airflow.operators.python import PythonOperator
 from airflow.providers.docker.operators.docker import DockerOperator
 from airflow.models import Variable
 import os
 
 # Default arguments for the DAG
 default_args = {
-    'owner': 'molecule-ai-team',
-    'depends_on_past': False,
-    'email_on_failure': False,
-    'email_on_retry': False,
-    'retries': 2,
-    'retry_delay': timedelta(minutes=5),
+    "owner": "molecule-ai-team",
+    "depends_on_past": False,
+    "email_on_failure": False,
+    "email_on_retry": False,
+    "retries": 2,
+    "retry_delay": timedelta(minutes=5),
 }
 
 # Initialize the DAG
 dag = DAG(
-    'dit_uq_stage3',
+    "dit_uq_stage3",
     default_args=default_args,
-    description='Stage 3: Physics-ML integration with DiffDock-L high-fidelity docking',
+    description="Stage 3: Physics-ML integration with DiffDock-L high-fidelity docking",
     schedule_interval=None,
     start_date=datetime(2025, 8, 3),
     catchup=False,
-    tags=['molecular-ai', 'stage3', 'physics-ml', 'diffdock'],
+    tags=["molecular-ai", "stage3", "physics-ml", "diffdock"],
 )
 
 # Get the Airflow data directory from environment
-airflow_data = os.environ.get('AIRFLOW_DATA', '/Users/mxvsatv321/Documents/graph-dit-uq/data')
+airflow_data = os.environ.get(
+    "AIRFLOW_DATA", "/Users/mxvsatv321/Documents/graph-dit-uq/data"
+)
 
 # Get configuration from Airflow Variables
 lambda_diffdock = Variable.get("LAMBDA_DIFFDOCK", default_var=0.4)
@@ -44,7 +45,7 @@ diffdock_num_samples = Variable.get("DIFFDOCK_NUM_SAMPLES", default_var=16)
 # TASK 1: Check data availability
 ############################################
 download_data = BashOperator(
-    task_id='download_data',
+    task_id="download_data",
     bash_command="""
     if [ -f /data/qm9_subset.pt ]; then
         echo "QM9 subset already exists at /data/qm9_subset.pt"
@@ -60,12 +61,15 @@ download_data = BashOperator(
 # TASK 2: Generate molecules using RLGraphDiT
 ############################################
 generative_sample = DockerOperator(
-    task_id='generative_sample',
-    image='molecule-ai-base:latest',
-    api_version='auto',
+    task_id="generative_sample",
+    image="molecule-ai-base:latest",
+    api_version="auto",
     auto_remove=True,
     mount_tmp_dir=False,
-    command=['python', '-c', '''
+    command=[
+        "python",
+        "-c",
+        """
 import torch
 import pandas as pd
 import os
@@ -110,13 +114,22 @@ df = pd.DataFrame({
 })
 df.to_parquet('/data/generated_molecules.parquet', index=False)
 print(f"Generated {len(molecules)} molecules")
-'''],
-    docker_url='unix://var/run/docker.sock',
-    network_mode='bridge',
+""",
+    ],
+    docker_url="unix://var/run/docker.sock",
+    network_mode="bridge",
     mounts=[
-        {'source': airflow_data, 'target': '/data', 'type': 'bind'},
-        {'source': '/Users/mxvsatv321/Documents/graph-dit-uq/checkpoints', 'target': '/data/checkpoints', 'type': 'bind'},
-        {'source': '/Users/mxvsatv321/Documents/graph-dit-uq/src', 'target': '/app/src', 'type': 'bind'}
+        {"source": airflow_data, "target": "/data", "type": "bind"},
+        {
+            "source": "/Users/mxvsatv321/Documents/graph-dit-uq/checkpoints",
+            "target": "/data/checkpoints",
+            "type": "bind",
+        },
+        {
+            "source": "/Users/mxvsatv321/Documents/graph-dit-uq/src",
+            "target": "/app/src",
+            "type": "bind",
+        },
     ],
     dag=dag,
 )
@@ -125,12 +138,15 @@ print(f"Generated {len(molecules)} molecules")
 # TASK 3: UQ prediction using AutoGNNUQ service
 ############################################
 uq_predict = DockerOperator(
-    task_id='uq_predict',
-    image='molecule-ai-base:latest',
-    api_version='auto',
+    task_id="uq_predict",
+    image="molecule-ai-base:latest",
+    api_version="auto",
     auto_remove=True,
     mount_tmp_dir=False,
-    command=['python', '-c', '''
+    command=[
+        "python",
+        "-c",
+        """
 import pandas as pd
 import numpy as np
 import requests
@@ -179,12 +195,11 @@ df['sigma'] = [p['sigma'] for p in all_predictions]
 # Save updated parquet
 df.to_parquet('/data/molecules_with_uq.parquet', index=False)
 print(f"Added UQ predictions for {len(df)} molecules")
-'''],
-    docker_url='unix://var/run/docker.sock',
-    network_mode='bridge',
-    mounts=[
-        {'source': airflow_data, 'target': '/data', 'type': 'bind'}
+""",
     ],
+    docker_url="unix://var/run/docker.sock",
+    network_mode="bridge",
+    mounts=[{"source": airflow_data, "target": "/data", "type": "bind"}],
     dag=dag,
 )
 
@@ -192,12 +207,15 @@ print(f"Added UQ predictions for {len(df)} molecules")
 # TASK 4: QuickVina2 docking (low-fidelity baseline)
 ############################################
 quickvina_docking = DockerOperator(
-    task_id='quickvina_docking',
-    image='molecule-ai-base:latest',
-    api_version='auto',
+    task_id="quickvina_docking",
+    image="molecule-ai-base:latest",
+    api_version="auto",
     auto_remove=True,
     mount_tmp_dir=False,
-    command=['python', '-c', '''
+    command=[
+        "python",
+        "-c",
+        """
 import pandas as pd
 import numpy as np
 import requests
@@ -244,12 +262,11 @@ df['quickvina_score'] = [r['docking_score'] for r in all_results]
 # Save updated parquet
 df.to_parquet('/data/molecules_with_quickvina.parquet', index=False)
 print(f"Added QuickVina2 scores for {len(df)} molecules")
-'''],
-    docker_url='unix://var/run/docker.sock',
-    network_mode='bridge',
-    mounts=[
-        {'source': airflow_data, 'target': '/data', 'type': 'bind'}
+""",
     ],
+    docker_url="unix://var/run/docker.sock",
+    network_mode="bridge",
+    mounts=[{"source": airflow_data, "target": "/data", "type": "bind"}],
     dag=dag,
 )
 
@@ -257,12 +274,15 @@ print(f"Added QuickVina2 scores for {len(df)} molecules")
 # TASK 5: DiffDock-L high-fidelity docking
 ############################################
 diffdock_docking = DockerOperator(
-    task_id='diffdock_docking',
-    image='molecule-ai-base:latest',
-    api_version='auto',
+    task_id="diffdock_docking",
+    image="molecule-ai-base:latest",
+    api_version="auto",
     auto_remove=True,
     mount_tmp_dir=False,
-    command=['python', '-c', f'''
+    command=[
+        "python",
+        "-c",
+        f"""
 import pandas as pd
 import requests
 import json
@@ -319,12 +339,11 @@ df['diffdock_score'] = df['diffdock_confidence'] * (1.0 / (1.0 + df['diffdock_rm
 # Save updated parquet
 df.to_parquet('/data/molecules_with_diffdock.parquet', index=False)
 print(f"Added DiffDock-L scores for {{len(df)}} molecules")
-'''],
-    docker_url='unix://var/run/docker.sock',
-    network_mode='bridge',
-    mounts=[
-        {'source': airflow_data, 'target': '/data', 'type': 'bind'}
+""",
     ],
+    docker_url="unix://var/run/docker.sock",
+    network_mode="bridge",
+    mounts=[{"source": airflow_data, "target": "/data", "type": "bind"}],
     dag=dag,
 )
 
@@ -332,12 +351,15 @@ print(f"Added DiffDock-L scores for {{len(df)}} molecules")
 # TASK 6: Validate molecular properties
 ############################################
 validate_properties = DockerOperator(
-    task_id='validate_properties',
-    image='molecule-ai-base:latest',
-    api_version='auto',
+    task_id="validate_properties",
+    image="molecule-ai-base:latest",
+    api_version="auto",
     auto_remove=True,
     mount_tmp_dir=False,
-    command=['python', '-c', '''
+    command=[
+        "python",
+        "-c",
+        """
 import pandas as pd
 import numpy as np
 import re
@@ -424,12 +446,11 @@ df_valid['pains_flag'] = False
 # Save validated molecules
 df_valid.to_parquet('/data/molecules_validated.parquet', index=False)
 print(f"Validation passed: {len(df_valid)} valid molecules")
-'''],
-    docker_url='unix://var/run/docker.sock',
-    network_mode='bridge',
-    mounts=[
-        {'source': airflow_data, 'target': '/data', 'type': 'bind'}
+""",
     ],
+    docker_url="unix://var/run/docker.sock",
+    network_mode="bridge",
+    mounts=[{"source": airflow_data, "target": "/data", "type": "bind"}],
     dag=dag,
 )
 
@@ -437,12 +458,15 @@ print(f"Validation passed: {len(df_valid)} valid molecules")
 # TASK 7: Merge parquet files with physics-aware metrics
 ############################################
 parquet_merge = DockerOperator(
-    task_id='parquet_merge',
-    image='molecule-ai-base:latest',
-    api_version='auto',
+    task_id="parquet_merge",
+    image="molecule-ai-base:latest",
+    api_version="auto",
     auto_remove=True,
     mount_tmp_dir=False,
-    command=['python', '-c', '''
+    command=[
+        "python",
+        "-c",
+        """
 import pandas as pd
 import glob
 from datetime import datetime
@@ -490,14 +514,21 @@ summary = {
 print(f"Stage 3 completed: {len(df)} molecules processed")
 print(f"Physics reward mean: {summary['mean_physics_reward']:.3f}")
 print(f"DiffDock confidence mean: {summary['mean_diffdock_confidence']:.3f}")
-'''],
-    docker_url='unix://var/run/docker.sock',
-    network_mode='bridge',
-    mounts=[
-        {'source': airflow_data, 'target': '/data', 'type': 'bind'}
+""",
     ],
+    docker_url="unix://var/run/docker.sock",
+    network_mode="bridge",
+    mounts=[{"source": airflow_data, "target": "/data", "type": "bind"}],
     dag=dag,
 )
 
 # Set task dependencies - Stage 3 pipeline with physics-ML integration
-download_data >> generative_sample >> uq_predict >> quickvina_docking >> diffdock_docking >> validate_properties >> parquet_merge 
+(
+    download_data
+    >> generative_sample
+    >> uq_predict
+    >> quickvina_docking
+    >> diffdock_docking
+    >> validate_properties
+    >> parquet_merge
+)

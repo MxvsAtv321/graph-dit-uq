@@ -6,3 +6,35 @@ data/**
 .idea/
 .vscode/
 ablation/raw/*
+
+# Build artifacts
+*.pt
+.pytest_cache
+__pycache__/
+*.pyc
+
+# System files
+*.DS_Store
+.DS_Store?
+
+# Logs
+logs/
+*.log
+
+# Virtual environment
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Large files
+checkpoints/*.pt
+data/raw/
+screenshots/*.png
+
+# Airflow
+airflow.cfg
+airflow.db
+webserver_config.py
