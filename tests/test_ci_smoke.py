@@ -97,7 +97,6 @@ def test_basic_imports():
     """Test basic imports that should work in CI."""
     try:
         import numpy
-
         print("✅ numpy imported successfully")
     except ImportError:
         print("⚠️  numpy not available")

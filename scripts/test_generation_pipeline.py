@@ -47,7 +47,7 @@ def test_pipeline():
         try:
             checkpoint_path = temp_path / "test_checkpoint.pt"
             model.save_checkpoint(str(checkpoint_path))
-            loaded_model = GraphDiTWrapper.load_from_checkpoint(str(checkpoint_path))
+            GraphDiTWrapper.load_from_checkpoint(str(checkpoint_path))
             logger.info("✅ Checkpoint save/load successful")
         except Exception as e:
             logger.error(f"❌ Checkpoint operations failed: {e}")

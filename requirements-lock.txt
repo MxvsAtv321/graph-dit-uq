@@ -22,7 +22,7 @@ frozenlist==1.7.0
 fsspec==2025.7.0
 gitdb==4.0.12
 GitPython==3.1.45
--e git+https://github.com/MxvsAtv321/graph-dit-uq@51bae718ca9eab93788b549858989c9b90468fd1#egg=graph_dit_uq
+-e git+https://github.com/MxvsAtv321/graph-dit-uq@0ffb7fbdcaccac3ed99cef1ddaae7c4a279dc565#egg=graph_dit_uq
 GridDataFormats==1.0.2
 h11==0.16.0
 httpcore==1.0.9

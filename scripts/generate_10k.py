@@ -31,7 +31,7 @@ def calculate_sa_score(mol) -> float:
     try:
         # Get number of atoms and rings
         num_atoms = mol.GetNumHeavyAtoms()
-        num_rings = mol.GetRingInfo().NumRings()
+        mol.GetRingInfo().NumRings()
 
         # Base score (more realistic)
         base_score = 1.0

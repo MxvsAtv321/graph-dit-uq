@@ -1,6 +1,7 @@
 def test_import():
     """Test that the package can be imported."""
     try:
+        # Test that src package can be imported
         import src
 
         # Don't check version as it might not be available in all environments

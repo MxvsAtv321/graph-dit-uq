@@ -83,7 +83,7 @@ def update_pareto_plot_with_uncertainty(results_path: str, output_path: str):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
 
     # Plot 1: Original Pareto plot
-    scatter1 = ax1.scatter(docking, qed, alpha=0.6, s=20, c=qed, cmap="viridis")
+    ax1.scatter(docking, qed, alpha=0.6, s=20, c=qed, cmap="viridis")
     ax1.set_xlabel("Docking Score (kcal/mol)", fontsize=14)
     ax1.set_ylabel("QED Score", fontsize=14)
     ax1.set_title("Original Pareto Plot", fontsize=16, weight="bold")

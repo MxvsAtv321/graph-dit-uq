@@ -276,10 +276,10 @@ def create_ablation_study_figure():
     x = np.arange(len(metrics))
     width = 0.35
 
-    bars1 = ax.bar(
+    ax.bar(
         x - width / 2, baseline_values, width, label="Baseline", color="gray", alpha=0.8
     )
-    bars2 = ax.bar(
+    ax.bar(
         x + width / 2, rl_values, width, label="RL Training", color="blue", alpha=0.8
     )
 
@@ -315,7 +315,7 @@ def create_uncertainty_analysis_figure():
     uncertainty = np.random.uniform(0.01, 0.2, 100)
     rewards = 0.5 + 0.3 * uncertainty + 0.1 * np.random.randn(100)
 
-    scatter = ax.scatter(
+    ax.scatter(
         uncertainty, rewards, alpha=0.6, s=50, c=rewards, cmap="viridis"
     )
     ax.set_xlabel("Epistemic Uncertainty", fontsize=12)

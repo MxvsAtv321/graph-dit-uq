@@ -36,7 +36,7 @@ def run_iteration(iteration_num, run_id_prefix="test_5"):
     ]
 
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+        subprocess.run(cmd, capture_output=True, text=True, check=True)
         print(f"✅ Triggered iteration {iteration_num}")
         return run_id, True
     except subprocess.CalledProcessError as e:

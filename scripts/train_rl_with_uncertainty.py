@@ -15,8 +15,9 @@ from src.rl.molecular_ppo import MolecularPPO, RLGraphDiT
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Set random seeds for reproducibility
 import random
+
+# Set random seeds for reproducibility
 
 
 def set_seeds(seed=42):
@@ -228,9 +229,9 @@ def compute_pareto_metrics(molecules):
         return {"pareto_percentage": 0, "n_pareto": 0, "pareto_indices": []}
 
     # Extract properties
-    qed_scores = [m["qed"] for m in molecules]
-    docking_scores = [m["docking_score"] for m in molecules]
-    sa_scores = [m["sa_score"] for m in molecules]
+    [m["qed"] for m in molecules]
+    [m["docking_score"] for m in molecules]
+    [m["sa_score"] for m in molecules]
 
     # Find Pareto optimal points
     pareto_indices = []

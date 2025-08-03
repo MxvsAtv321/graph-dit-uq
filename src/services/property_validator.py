@@ -41,7 +41,6 @@ def validate_smiles(smiles: str) -> Dict[str, Any]:
     """
     try:
         from rdkit import Chem
-        from rdkit.Chem import Descriptors
 
         mol = Chem.MolFromSmiles(smiles)
         if mol is None:

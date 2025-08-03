@@ -98,10 +98,10 @@ def check_smiles_parsing_safety(smiles, timeout=5):
             if result["sanitize_success"]:
                 try:
                     # Ring info
-                    ring_info = mol.GetRingInfo()
+                    mol.GetRingInfo()
 
                     # Aromatic rings
-                    aromatic_rings = rdMolDescriptors.CalcNumAromaticRings(mol)
+                    rdMolDescriptors.CalcNumAromaticRings(mol)
 
                     # Conformer generation (limited)
                     AllChem.EmbedMolecule(mol, maxAttempts=1)

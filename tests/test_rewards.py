@@ -112,19 +112,19 @@ def test_reward_performance():
     # Test AHI performance
     start_time = time.time()
     for mol in molecules:
-        reward = adaptive_hypervolume_reward(mol, pareto_front, None)
+        adaptive_hypervolume_reward(mol, pareto_front, None)
     ahi_time = time.time() - start_time
 
     # Test LPEF performance
     start_time = time.time()
     for mol in molecules:
-        reward = latent_pareto_energy_reward(mol, [0.33, 0.33, 0.34])
+        latent_pareto_energy_reward(mol, [0.33, 0.33, 0.34])
     lpef_time = time.time() - start_time
 
     # Test SUCB performance
     start_time = time.time()
     for mol in molecules:
-        reward = sucb_pareto_dominance_reward(mol, [])
+        sucb_pareto_dominance_reward(mol, [])
     sucb_time = time.time() - start_time
 
     # All should complete in reasonable time (< 1 second for 5 molecules)

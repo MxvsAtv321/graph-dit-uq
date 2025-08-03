@@ -21,7 +21,7 @@ def merge_iteration_results(run_prefix="sandbox_iter", output_file=None):
 
     # Find all stage3_results files
     data_dir = "data"
-    pattern = os.path.join(data_dir, "stage3_results.parquet")
+    os.path.join(data_dir, "stage3_results.parquet")
 
     # Get all parquet files in data directory
     all_files = glob.glob(os.path.join(data_dir, "*.parquet"))

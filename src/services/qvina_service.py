@@ -50,7 +50,7 @@ def check_gpu():
             timeout=5,
         )
         return result.returncode == 0 and result.stdout.strip() != ""
-    except:
+    except (subprocess.SubprocessError, FileNotFoundError):
         return False
 
 

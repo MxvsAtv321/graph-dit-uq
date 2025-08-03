@@ -19,8 +19,9 @@ except ImportError:
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Set random seeds for reproducibility
 import random
+
+# Set random seeds for reproducibility
 
 
 def set_seeds(seed=42):
@@ -329,7 +330,7 @@ class MolecularPPO:
 
         # Compute properties
         qed = QED.qed(mol)
-        logp = Crippen.MolLogP(mol)
+        Crippen.MolLogP(mol)
 
         # SA calculation (simplified)
         num_atoms = mol.GetNumHeavyAtoms()
@@ -386,7 +387,7 @@ class RLGraphDiT(nn.Module):
 
     def sample_action(self):
         """Sample action (next token) from policy"""
-        state = self.get_state()
+        self.get_state()
 
         # Mock action sampling - use smaller range for valid molecules
         action_logits = torch.randn(1, 100).to(self.device)  # 100 possible actions

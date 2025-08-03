@@ -59,7 +59,7 @@ def plot_pareto_teaser(
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 12))
 
     # 1. Main Pareto plot: Docking vs QED
-    scatter1 = ax1.scatter(docking, qed, alpha=0.6, s=20, c=qed, cmap="viridis")
+    ax1.scatter(docking, qed, alpha=0.6, s=20, c=qed, cmap="viridis")
 
     # Find Pareto front
     pareto_indices = compute_pareto_front(docking, qed)

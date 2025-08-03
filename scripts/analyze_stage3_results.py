@@ -228,7 +228,7 @@ def generate_stage3_completion_report():
     try:
         with open("data/stage3_analysis_summary.json", "r") as f:
             summary = json.load(f)
-    except:
+    except (FileNotFoundError, json.JSONDecodeError):
         print("❌ Analysis summary not found. Run analysis first.")
         return
 

@@ -51,7 +51,7 @@ def launch_lambda_sweep():
         ]
 
         try:
-            result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+            subprocess.run(cmd, capture_output=True, text=True, check=True)
             print(f"✅ Successfully triggered λ = {lambda_val}")
             print(f"   Run ID: {run_id}")
         except subprocess.CalledProcessError as e:

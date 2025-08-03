@@ -80,7 +80,7 @@ def test_gpu_memory_usage():
     initial_memory = torch.cuda.memory_allocated()
 
     # Run training
-    metrics = model.train_one_epoch(dataset="qm9_subset", epochs=1)
+    model.train_one_epoch(dataset="qm9_subset", epochs=1)
 
     # Get peak memory
     peak_memory = torch.cuda.max_memory_allocated()
