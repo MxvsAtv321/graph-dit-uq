@@ -1,0 +1,24 @@
+FROM nvidia/cuda:12.3.1-runtime-ubuntu22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y git python3 python3-pip curl && \
+    pip install torch==2.2.0+cu121 -f https://download.pytorch.org/whl/torch_stable.html \
+                rdkit-pypi==2023.09.3 \
+                fastapi uvicorn[standard] requests numpy pandas && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install DiffDock-L (mock implementation for now)
+RUN pip install diffdock-l==0.4.1 || echo "DiffDock-L not available, using mock"
+
+# Expose FastAPI
+ENV PORT=9100
+WORKDIR /app
+
+# Copy service file
+COPY src/services/diffdock_l_service.py /app/diffdock_l_service.py
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
+    CMD curl -f http://localhost:9100/live || exit 1
+
+CMD ["uvicorn", "diffdock_l_service:app", "--host", "0.0.0.0", "--port", "9100"] 

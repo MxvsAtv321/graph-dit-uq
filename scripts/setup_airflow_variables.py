@@ -12,7 +12,7 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-def setup_airflow_variables(wandb_key=None, autognnuq_url=None, dock_url=None):
+def setup_airflow_variables(wandb_key=None, autognnuq_url=None, dock_url=None, diffdock_url=None):
     """Set up Airflow Variables for the Stage 1 and Stage 2 pipelines"""
     
     # Import Airflow components
@@ -35,7 +35,11 @@ def setup_airflow_variables(wandb_key=None, autognnuq_url=None, dock_url=None):
         "VALIDATION_MAX_FLAGGED_PCT": "2.0",
         "GENERATION_MIN_VALIDITY_RATE": "0.98",
         "RL_CHECKPOINT_PATH": "/data/checkpoints/graph_dit_10k.pt",
-        "HARD_NEGATIVES_PATH": "/data/reference/ddr1_hard_negatives.sdf"
+        "HARD_NEGATIVES_PATH": "/data/reference/ddr1_hard_negatives.sdf",
+        # Stage 3 Physics-ML variables
+        "LAMBDA_DIFFDOCK": "0.4",
+        "DIFFDOCK_BATCH_SIZE": "8",
+        "DIFFDOCK_NUM_SAMPLES": "16"
     }
     
     # Add optional parameters if provided
@@ -45,6 +49,8 @@ def setup_airflow_variables(wandb_key=None, autognnuq_url=None, dock_url=None):
         variables["AUTOGNNUQ_URL"] = autognnuq_url
     if dock_url:
         variables["DOCK_URL"] = dock_url
+    if diffdock_url:
+        variables["DIFFDOCK_URL"] = diffdock_url
     
     # Set up Airflow session
     session = settings.Session()
@@ -99,6 +105,7 @@ if __name__ == "__main__":
     parser.add_argument("--wandb_key", help="W&B API key for telemetry")
     parser.add_argument("--autognnuq_url", help="AutoGNNUQ service URL")
     parser.add_argument("--dock_url", help="Docking service URL")
+    parser.add_argument("--diffdock_url", help="DiffDock-L service URL")
     
     args = parser.parse_args()
     
@@ -107,7 +114,8 @@ if __name__ == "__main__":
     success = setup_airflow_variables(
         wandb_key=args.wandb_key,
         autognnuq_url=args.autognnuq_url,
-        dock_url=args.dock_url
+        dock_url=args.dock_url,
+        diffdock_url=args.diffdock_url
     )
     
     if success:

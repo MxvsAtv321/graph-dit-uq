@@ -19,7 +19,7 @@ RUN pip install rdkit==2023.9.5 && \
 
 # Science stack
 RUN pip install matplotlib pandas seaborn scikit-learn \
-    tqdm protobuf
+    tqdm protobuf pyarrow
 
 # Local project files
 WORKDIR /app

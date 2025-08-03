@@ -989,3 +989,717 @@
 [2025-08-02T20:52:26.647+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:52:26.647+0000] {dag.py:3036} INFO - Sync 1 DAGs
 [2025-08-02T20:52:26.655+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:52:26.654+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
 [2025-08-02T20:52:26.662+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.035 seconds
+[2025-08-02T20:52:57.242+0000] {processor.py:161} INFO - Started process (PID=4951) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:52:57.243+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T20:52:57.245+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:52:57.245+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:52:57.254+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:52:57.274+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:52:57.274+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T20:52:57.281+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:52:57.281+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T20:52:57.295+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.057 seconds
+[2025-08-02T20:53:27.936+0000] {processor.py:161} INFO - Started process (PID=5011) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:53:27.936+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T20:53:27.938+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:53:27.938+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:53:27.944+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:53:27.957+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:53:27.956+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T20:53:27.963+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:53:27.963+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T20:53:27.972+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.040 seconds
+[2025-08-02T20:53:58.598+0000] {processor.py:161} INFO - Started process (PID=5071) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:53:58.599+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T20:53:58.600+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:53:58.600+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:53:58.607+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:53:58.616+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:53:58.616+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T20:53:58.622+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:53:58.622+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T20:53:58.630+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.035 seconds
+[2025-08-02T20:54:29.216+0000] {processor.py:161} INFO - Started process (PID=5131) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:54:29.217+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T20:54:29.218+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:54:29.218+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:54:29.222+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:54:29.233+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:54:29.233+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T20:54:29.241+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:54:29.241+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T20:54:29.250+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.036 seconds
+[2025-08-02T20:55:00.226+0000] {processor.py:161} INFO - Started process (PID=5191) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:55:00.227+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T20:55:00.228+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:55:00.228+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:55:00.233+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:55:00.247+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:55:00.247+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T20:55:00.253+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:55:00.253+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T20:55:00.332+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.108 seconds
+[2025-08-02T20:55:31.097+0000] {processor.py:161} INFO - Started process (PID=5251) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:55:31.098+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T20:55:31.100+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:55:31.099+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:55:31.106+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:55:31.122+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:55:31.122+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T20:55:31.130+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:55:31.130+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T20:55:31.143+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.049 seconds
+[2025-08-02T20:56:01.559+0000] {processor.py:161} INFO - Started process (PID=5313) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:56:01.562+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T20:56:01.563+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:56:01.563+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:56:01.569+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:56:01.587+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:56:01.587+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T20:56:01.594+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:56:01.594+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T20:56:01.608+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.052 seconds
+[2025-08-02T20:56:32.255+0000] {processor.py:161} INFO - Started process (PID=5375) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:56:32.256+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T20:56:32.258+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:56:32.258+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:56:32.266+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:56:32.282+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:56:32.282+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T20:56:32.288+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:56:32.288+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T20:56:32.300+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.050 seconds
+[2025-08-02T20:57:02.862+0000] {processor.py:161} INFO - Started process (PID=5437) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:57:02.863+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T20:57:02.865+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:57:02.865+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:57:02.875+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:57:02.890+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:57:02.890+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T20:57:02.896+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:57:02.896+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T20:57:02.906+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.048 seconds
+[2025-08-02T20:57:33.512+0000] {processor.py:161} INFO - Started process (PID=5499) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:57:33.514+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T20:57:33.523+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:57:33.522+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:57:33.576+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:57:33.611+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:57:33.610+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T20:57:33.633+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:57:33.633+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T20:57:33.658+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.152 seconds
+[2025-08-02T20:58:03.840+0000] {processor.py:161} INFO - Started process (PID=5561) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:58:03.842+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T20:58:03.845+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:58:03.844+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:58:03.852+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:58:03.874+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:58:03.874+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T20:58:03.887+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:58:03.887+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T20:58:03.897+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.062 seconds
+[2025-08-02T20:58:34.696+0000] {processor.py:161} INFO - Started process (PID=5623) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:58:34.697+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T20:58:34.700+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:58:34.699+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:58:34.713+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:58:34.734+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:58:34.734+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T20:58:34.746+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:58:34.746+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T20:58:34.756+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.066 seconds
+[2025-08-02T20:59:05.465+0000] {processor.py:161} INFO - Started process (PID=5685) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:59:05.466+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T20:59:05.468+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:59:05.468+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:59:05.477+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:59:05.494+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:59:05.494+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T20:59:05.501+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:59:05.500+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T20:59:05.512+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.051 seconds
+[2025-08-02T20:59:36.297+0000] {processor.py:161} INFO - Started process (PID=5747) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:59:36.298+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T20:59:36.300+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:59:36.299+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:59:36.309+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T20:59:36.323+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:59:36.323+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T20:59:36.329+0000] {logging_mixin.py:188} INFO - [2025-08-02T20:59:36.329+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T20:59:36.339+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.046 seconds
+[2025-08-02T21:00:06.886+0000] {processor.py:161} INFO - Started process (PID=5809) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:00:06.888+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:00:06.890+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:00:06.890+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:00:06.901+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:00:06.916+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:00:06.915+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:00:06.922+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:00:06.922+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:00:06.931+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.050 seconds
+[2025-08-02T21:00:37.718+0000] {processor.py:161} INFO - Started process (PID=5871) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:00:37.720+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:00:37.724+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:00:37.724+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:00:37.736+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:00:37.754+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:00:37.753+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:00:37.765+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:00:37.765+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:00:37.777+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.069 seconds
+[2025-08-02T21:01:08.212+0000] {processor.py:161} INFO - Started process (PID=5933) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:01:08.213+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:01:08.215+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:01:08.215+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:01:08.223+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:01:08.237+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:01:08.237+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:01:08.244+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:01:08.243+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:01:08.254+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.046 seconds
+[2025-08-02T21:01:38.905+0000] {processor.py:161} INFO - Started process (PID=5995) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:01:38.910+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:01:38.913+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:01:38.912+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:01:38.927+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:01:38.945+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:01:38.944+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:01:38.951+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:01:38.951+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:01:38.960+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.061 seconds
+[2025-08-02T21:06:15.077+0000] {processor.py:161} INFO - Started process (PID=6058) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:06:15.079+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:06:15.083+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:06:15.082+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:06:15.094+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:06:15.150+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:06:15.148+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:06:15.190+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:06:15.189+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:06:15.216+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.145 seconds
+[2025-08-02T21:06:45.989+0000] {processor.py:161} INFO - Started process (PID=6120) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:06:45.990+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:06:45.991+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:06:45.991+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:06:45.995+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:06:46.006+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:06:46.006+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:06:46.011+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:06:46.011+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:06:46.017+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.030 seconds
+[2025-08-02T21:07:41.704+0000] {processor.py:161} INFO - Started process (PID=6182) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:07:41.704+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:07:41.705+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:07:41.705+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:07:41.708+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:07:41.716+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:07:41.716+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:07:41.721+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:07:41.721+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:07:41.731+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.029 seconds
+[2025-08-02T21:09:44.750+0000] {processor.py:161} INFO - Started process (PID=6244) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:09:44.752+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:09:44.753+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:09:44.753+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:09:44.760+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:09:44.774+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:09:44.774+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:09:44.780+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:09:44.780+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:09:44.791+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.044 seconds
+[2025-08-02T21:10:32.155+0000] {processor.py:161} INFO - Started process (PID=6306) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:10:32.156+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:10:32.156+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:10:32.156+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:10:32.160+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:10:32.171+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:10:32.171+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:10:32.178+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:10:32.178+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:10:32.189+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.035 seconds
+[2025-08-02T21:11:47.444+0000] {processor.py:161} INFO - Started process (PID=6368) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:11:47.446+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:11:47.448+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:11:47.448+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:11:47.451+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:11:47.460+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:11:47.460+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:11:47.465+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:11:47.465+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:11:47.475+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.032 seconds
+[2025-08-02T21:16:44.513+0000] {processor.py:161} INFO - Started process (PID=6430) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:16:44.514+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:16:44.517+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:16:44.516+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:16:44.527+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:16:44.546+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:16:44.546+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:16:44.558+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:16:44.558+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:16:44.582+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.073 seconds
+[2025-08-02T21:17:15.505+0000] {processor.py:161} INFO - Started process (PID=6492) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:17:15.506+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:17:15.507+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:17:15.507+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:17:15.512+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:17:15.523+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:17:15.523+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:17:15.529+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:17:15.529+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:17:15.542+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.046 seconds
+[2025-08-02T21:17:46.241+0000] {processor.py:161} INFO - Started process (PID=6554) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:17:46.241+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:17:46.242+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:17:46.242+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:17:46.245+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:17:46.254+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:17:46.254+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:17:46.259+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:17:46.258+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:17:46.268+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.029 seconds
+[2025-08-02T21:18:16.746+0000] {processor.py:161} INFO - Started process (PID=6616) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:18:16.747+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:18:16.748+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:18:16.748+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:18:16.752+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:18:16.762+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:18:16.761+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:18:16.766+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:18:16.766+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:18:16.775+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.030 seconds
+[2025-08-02T21:18:47.398+0000] {processor.py:161} INFO - Started process (PID=6678) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:18:47.399+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:18:47.400+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:18:47.400+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:18:47.404+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:18:47.415+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:18:47.414+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:18:47.420+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:18:47.420+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:18:47.431+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.038 seconds
+[2025-08-02T21:19:18.019+0000] {processor.py:161} INFO - Started process (PID=6740) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:19:18.019+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:19:18.020+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:19:18.020+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:19:18.023+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:19:18.035+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:19:18.035+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:19:18.040+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:19:18.040+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:19:18.048+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.031 seconds
+[2025-08-02T21:19:48.677+0000] {processor.py:161} INFO - Started process (PID=6802) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:19:48.678+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:19:48.678+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:19:48.678+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:19:48.683+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:19:48.693+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:19:48.693+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:19:48.698+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:19:48.698+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:19:48.706+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.030 seconds
+[2025-08-02T21:20:19.331+0000] {processor.py:161} INFO - Started process (PID=6864) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:20:19.332+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:20:19.333+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:20:19.333+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:20:19.336+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:20:19.348+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:20:19.348+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:20:19.355+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:20:19.355+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:20:19.364+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.034 seconds
+[2025-08-02T21:20:50.078+0000] {processor.py:161} INFO - Started process (PID=6926) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:20:50.078+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:20:50.080+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:20:50.080+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:20:50.090+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:20:50.101+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:20:50.101+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:20:50.107+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:20:50.107+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:20:50.114+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.038 seconds
+[2025-08-02T21:21:20.833+0000] {processor.py:161} INFO - Started process (PID=6988) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:21:20.834+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:21:20.835+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:21:20.835+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:21:20.838+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:21:20.848+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:21:20.848+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:21:20.853+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:21:20.853+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:21:20.862+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.030 seconds
+[2025-08-02T21:21:51.476+0000] {processor.py:161} INFO - Started process (PID=7050) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:21:51.479+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:21:51.481+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:21:51.481+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:21:51.484+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:21:51.491+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:21:51.491+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:21:51.496+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:21:51.496+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:21:51.504+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.030 seconds
+[2025-08-02T21:22:22.390+0000] {processor.py:161} INFO - Started process (PID=7112) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:22:22.390+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:22:22.391+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:22:22.391+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:22:22.394+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:22:22.403+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:22:22.403+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:22:22.408+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:22:22.408+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:22:22.416+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.028 seconds
+[2025-08-02T21:22:53.237+0000] {processor.py:161} INFO - Started process (PID=7174) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:22:53.237+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:22:53.238+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:22:53.238+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:22:53.241+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:22:53.255+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:22:53.254+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:22:53.261+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:22:53.261+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:22:53.271+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.036 seconds
+[2025-08-02T21:23:24.019+0000] {processor.py:161} INFO - Started process (PID=7236) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:23:24.020+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:23:24.020+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:23:24.020+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:23:24.024+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:23:24.034+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:23:24.034+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:23:24.038+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:23:24.038+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:23:24.047+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.033 seconds
+[2025-08-02T21:23:55.097+0000] {processor.py:161} INFO - Started process (PID=7298) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:23:55.098+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:23:55.099+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:23:55.099+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:23:55.102+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:23:55.112+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:23:55.112+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:23:55.117+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:23:55.117+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:23:55.126+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.031 seconds
+[2025-08-02T21:24:25.956+0000] {processor.py:161} INFO - Started process (PID=7360) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:24:25.957+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:24:25.958+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:24:25.958+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:24:25.965+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:24:25.977+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:24:25.977+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:24:25.983+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:24:25.982+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:24:25.991+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.037 seconds
+[2025-08-02T21:24:56.938+0000] {processor.py:161} INFO - Started process (PID=7422) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:24:56.939+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:24:56.940+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:24:56.940+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:24:56.944+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:24:56.955+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:24:56.955+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:24:56.960+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:24:56.960+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:24:56.969+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.033 seconds
+[2025-08-02T21:25:27.726+0000] {processor.py:161} INFO - Started process (PID=7484) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:25:27.726+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:25:27.728+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:25:27.728+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:25:27.731+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:25:27.741+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:25:27.741+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:25:27.746+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:25:27.746+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:25:27.756+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.031 seconds
+[2025-08-02T21:25:58.467+0000] {processor.py:161} INFO - Started process (PID=7546) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:25:58.467+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:25:58.468+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:25:58.468+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:25:58.473+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:25:58.483+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:25:58.483+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:25:58.490+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:25:58.490+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:25:58.500+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.035 seconds
+[2025-08-02T21:26:29.392+0000] {processor.py:161} INFO - Started process (PID=7608) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:26:29.393+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:26:29.394+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:26:29.394+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:26:29.397+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:26:29.408+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:26:29.408+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:26:29.414+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:26:29.414+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:26:29.423+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.032 seconds
+[2025-08-02T21:27:00.278+0000] {processor.py:161} INFO - Started process (PID=7670) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:27:00.279+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:27:00.280+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:27:00.280+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:27:00.284+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:27:00.297+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:27:00.297+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:27:00.304+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:27:00.303+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:27:00.312+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.036 seconds
+[2025-08-02T21:27:31.164+0000] {processor.py:161} INFO - Started process (PID=7732) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:27:31.165+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:27:31.166+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:27:31.166+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:27:31.171+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:27:31.181+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:27:31.181+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:27:31.186+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:27:31.186+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:27:31.196+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.034 seconds
+[2025-08-02T21:28:01.961+0000] {processor.py:161} INFO - Started process (PID=7794) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:28:01.962+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:28:01.962+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:28:01.962+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:28:01.966+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:28:01.976+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:28:01.976+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:28:01.981+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:28:01.981+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:28:01.987+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.028 seconds
+[2025-08-02T21:28:32.615+0000] {processor.py:161} INFO - Started process (PID=7856) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:28:32.616+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:28:32.617+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:28:32.617+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:28:32.621+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:28:32.631+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:28:32.631+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:28:32.636+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:28:32.636+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:28:32.645+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.032 seconds
+[2025-08-02T21:29:03.310+0000] {processor.py:161} INFO - Started process (PID=7918) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:29:03.312+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:29:03.312+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:29:03.312+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:29:03.318+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:29:03.327+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:29:03.327+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:29:03.332+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:29:03.332+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:29:03.340+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.031 seconds
+[2025-08-02T21:29:33.919+0000] {processor.py:161} INFO - Started process (PID=7980) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:29:33.921+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:29:33.922+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:29:33.922+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:29:33.926+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:29:33.934+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:29:33.934+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:29:33.939+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:29:33.939+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:29:33.946+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.029 seconds
+[2025-08-02T21:30:04.671+0000] {processor.py:161} INFO - Started process (PID=8042) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:30:04.674+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:30:04.676+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:30:04.676+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:30:04.679+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:30:04.687+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:30:04.687+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:30:04.693+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:30:04.692+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:30:04.702+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.032 seconds
+[2025-08-02T21:30:35.441+0000] {processor.py:161} INFO - Started process (PID=8104) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:30:35.442+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:30:35.443+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:30:35.443+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:30:35.446+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:30:35.457+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:30:35.457+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:30:35.464+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:30:35.464+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:30:35.475+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.035 seconds
+[2025-08-02T21:31:06.097+0000] {processor.py:161} INFO - Started process (PID=8166) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:31:06.097+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:31:06.098+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:31:06.098+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:31:06.101+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:31:06.110+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:31:06.110+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:31:06.116+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:31:06.115+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:31:06.123+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.028 seconds
+[2025-08-02T21:31:36.901+0000] {processor.py:161} INFO - Started process (PID=8228) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:31:36.901+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:31:36.902+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:31:36.902+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:31:36.909+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:31:36.919+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:31:36.919+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:31:36.924+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:31:36.924+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:31:36.933+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.035 seconds
+[2025-08-02T21:47:37.087+0000] {processor.py:161} INFO - Started process (PID=8284) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:47:37.088+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T21:47:37.090+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:47:37.090+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:47:37.100+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T21:47:37.120+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:47:37.120+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T21:47:37.134+0000] {logging_mixin.py:188} INFO - [2025-08-02T21:47:37.134+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T21:47:37.157+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.074 seconds
+[2025-08-02T22:25:31.306+0000] {processor.py:161} INFO - Started process (PID=8346) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:25:31.307+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:25:31.308+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:25:31.308+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:25:31.317+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:25:31.338+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:25:31.338+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:25:31.354+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:25:31.354+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:25:31.377+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.075 seconds
+[2025-08-02T22:26:22.318+0000] {processor.py:161} INFO - Started process (PID=8408) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:26:22.321+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:26:22.322+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:26:22.322+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:26:22.327+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:26:22.340+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:26:22.340+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:26:22.349+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:26:22.349+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:26:22.361+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.045 seconds
+[2025-08-02T22:28:01.631+0000] {processor.py:161} INFO - Started process (PID=8470) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:28:01.632+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:28:01.633+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:28:01.633+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:28:01.637+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:28:01.648+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:28:01.648+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:28:01.653+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:28:01.653+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:28:01.664+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.035 seconds
+[2025-08-02T22:29:02.512+0000] {processor.py:161} INFO - Started process (PID=8532) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:29:02.513+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:29:02.513+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:29:02.513+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:29:02.517+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:29:02.527+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:29:02.527+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:29:02.533+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:29:02.532+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:29:02.543+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.033 seconds
+[2025-08-02T22:29:56.035+0000] {processor.py:161} INFO - Started process (PID=8594) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:29:56.036+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:29:56.037+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:29:56.036+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:29:56.043+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:29:56.052+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:29:56.052+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:29:56.056+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:29:56.056+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:29:56.065+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.031 seconds
+[2025-08-02T22:31:44.010+0000] {processor.py:161} INFO - Started process (PID=8656) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:31:44.010+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:31:44.011+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:31:44.011+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:31:44.015+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:31:44.029+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:31:44.029+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:31:44.037+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:31:44.037+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:31:44.047+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.039 seconds
+[2025-08-02T22:32:14.663+0000] {processor.py:161} INFO - Started process (PID=8718) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:32:14.666+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:32:14.667+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:32:14.667+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:32:14.670+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:32:14.679+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:32:14.679+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:32:14.684+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:32:14.683+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:32:14.691+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.030 seconds
+[2025-08-02T22:32:45.556+0000] {processor.py:161} INFO - Started process (PID=8780) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:32:45.556+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:32:45.557+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:32:45.557+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:32:45.563+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:32:45.574+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:32:45.574+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:32:45.580+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:32:45.580+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:32:45.589+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.036 seconds
+[2025-08-02T22:33:16.376+0000] {processor.py:161} INFO - Started process (PID=8841) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:33:16.379+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:33:16.380+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:33:16.380+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:33:16.384+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:33:16.392+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:33:16.392+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:33:16.397+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:33:16.397+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:33:16.407+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.032 seconds
+[2025-08-02T22:33:47.194+0000] {processor.py:161} INFO - Started process (PID=8909) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:33:47.195+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:33:47.196+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:33:47.196+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:33:47.200+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:33:47.209+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:33:47.208+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:33:47.213+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:33:47.213+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:33:47.222+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.029 seconds
+[2025-08-02T22:34:17.835+0000] {processor.py:161} INFO - Started process (PID=8971) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:34:17.838+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:34:17.839+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:34:17.839+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:34:17.843+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:34:17.852+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:34:17.852+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:34:17.857+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:34:17.857+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:34:17.864+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.031 seconds
+[2025-08-02T22:34:48.597+0000] {processor.py:161} INFO - Started process (PID=9033) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:34:48.597+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:34:48.598+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:34:48.598+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:34:48.603+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:34:48.611+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:34:48.611+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:34:48.615+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:34:48.615+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:34:48.623+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.028 seconds
+[2025-08-02T22:35:19.281+0000] {processor.py:161} INFO - Started process (PID=9095) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:35:19.281+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:35:19.282+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:35:19.282+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:35:19.286+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:35:19.295+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:35:19.295+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:35:19.300+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:35:19.300+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:35:19.307+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.028 seconds
+[2025-08-02T22:35:49.895+0000] {processor.py:161} INFO - Started process (PID=9157) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:35:49.895+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:35:49.896+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:35:49.896+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:35:49.900+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:35:49.909+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:35:49.909+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:35:49.913+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:35:49.913+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:35:49.922+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.029 seconds
+[2025-08-02T22:36:20.553+0000] {processor.py:161} INFO - Started process (PID=9219) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:36:20.553+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:36:20.554+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:36:20.554+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:36:20.558+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:36:20.567+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:36:20.567+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:36:20.574+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:36:20.574+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:36:20.582+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.030 seconds
+[2025-08-02T22:36:51.341+0000] {processor.py:161} INFO - Started process (PID=9281) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:36:51.343+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:36:51.344+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:36:51.344+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:36:51.347+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:36:51.357+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:36:51.357+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:36:51.363+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:36:51.363+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:36:51.371+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.039 seconds
+[2025-08-02T22:37:22.085+0000] {processor.py:161} INFO - Started process (PID=9343) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:37:22.086+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:37:22.087+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:37:22.087+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:37:22.092+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:37:22.103+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:37:22.103+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:37:22.109+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:37:22.109+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:37:22.118+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.035 seconds
+[2025-08-02T22:37:52.876+0000] {processor.py:161} INFO - Started process (PID=9405) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:37:52.877+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:37:52.878+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:37:52.878+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:37:52.884+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:37:52.899+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:37:52.899+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:37:52.905+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:37:52.905+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:37:52.920+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.046 seconds
+[2025-08-02T22:38:23.210+0000] {processor.py:161} INFO - Started process (PID=9467) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:38:23.211+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:38:23.211+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:38:23.211+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:38:23.215+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:38:23.227+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:38:23.227+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:38:23.234+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:38:23.234+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:38:23.243+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.036 seconds
+[2025-08-02T22:38:53.927+0000] {processor.py:161} INFO - Started process (PID=9529) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:38:53.928+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:38:53.929+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:38:53.929+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:38:53.933+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:38:53.945+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:38:53.945+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:38:53.950+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:38:53.950+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:38:53.959+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.033 seconds
+[2025-08-02T22:39:24.590+0000] {processor.py:161} INFO - Started process (PID=9591) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:39:24.592+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:39:24.593+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:39:24.593+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:39:24.597+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:39:24.609+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:39:24.609+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:39:24.613+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:39:24.613+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:39:24.621+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.033 seconds
+[2025-08-02T22:39:55.201+0000] {processor.py:161} INFO - Started process (PID=9653) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:39:55.201+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:39:55.202+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:39:55.202+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:39:55.206+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:39:55.219+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:39:55.219+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:39:55.227+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:39:55.226+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:39:55.236+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.037 seconds
+[2025-08-02T22:40:25.988+0000] {processor.py:161} INFO - Started process (PID=9715) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:40:25.989+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:40:25.990+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:40:25.990+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:40:25.994+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:40:26.018+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:40:26.017+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:40:26.042+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:40:26.042+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:40:26.090+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.104 seconds
+[2025-08-02T22:40:57.077+0000] {processor.py:161} INFO - Started process (PID=9777) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:40:57.078+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:40:57.079+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:40:57.079+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:40:57.084+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:40:57.095+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:40:57.094+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:40:57.102+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:40:57.102+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:40:57.113+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.037 seconds
+[2025-08-02T22:41:27.748+0000] {processor.py:161} INFO - Started process (PID=9839) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:41:27.751+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:41:27.752+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:41:27.752+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:41:27.756+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:41:27.766+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:41:27.766+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:41:27.770+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:41:27.770+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:41:27.777+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.031 seconds
+[2025-08-02T22:41:58.402+0000] {processor.py:161} INFO - Started process (PID=9901) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:41:58.403+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:41:58.404+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:41:58.404+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:41:58.407+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:41:58.417+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:41:58.417+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:41:58.423+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:41:58.423+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:41:58.432+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.032 seconds
+[2025-08-02T22:42:29.173+0000] {processor.py:161} INFO - Started process (PID=9963) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:42:29.174+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:42:29.175+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:42:29.174+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:42:29.178+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:42:29.190+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:42:29.189+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:42:29.195+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:42:29.195+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:42:29.203+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.033 seconds
+[2025-08-02T22:42:59.834+0000] {processor.py:161} INFO - Started process (PID=10025) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:42:59.835+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:42:59.836+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:42:59.835+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:42:59.838+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:42:59.850+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:42:59.849+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:42:59.854+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:42:59.854+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:42:59.862+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.030 seconds
+[2025-08-02T22:43:30.425+0000] {processor.py:161} INFO - Started process (PID=10087) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:43:30.425+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:43:30.427+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:43:30.426+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:43:30.430+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:43:30.443+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:43:30.443+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:43:30.447+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:43:30.447+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:43:30.457+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.034 seconds
+[2025-08-02T22:44:01.202+0000] {processor.py:161} INFO - Started process (PID=10149) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:44:01.203+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:44:01.204+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:44:01.204+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:44:01.208+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:44:01.218+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:44:01.218+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:44:01.223+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:44:01.223+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:44:01.231+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.031 seconds
+[2025-08-02T22:44:31.798+0000] {processor.py:161} INFO - Started process (PID=10211) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:44:31.801+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:44:31.802+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:44:31.802+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:44:31.806+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:44:31.814+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:44:31.814+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:44:31.820+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:44:31.819+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:44:31.829+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.033 seconds
+[2025-08-02T22:45:02.508+0000] {processor.py:161} INFO - Started process (PID=10273) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:45:02.509+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:45:02.510+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:45:02.509+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:45:02.513+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:45:02.522+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:45:02.522+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:45:02.527+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:45:02.526+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:45:02.533+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.027 seconds
+[2025-08-02T22:45:33.145+0000] {processor.py:161} INFO - Started process (PID=10335) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:45:33.145+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:45:33.146+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:45:33.146+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:45:33.150+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:45:33.159+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:45:33.159+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:45:33.164+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:45:33.164+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:45:33.170+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.027 seconds
+[2025-08-02T22:46:03.811+0000] {processor.py:161} INFO - Started process (PID=10397) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:46:03.811+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:46:03.812+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:46:03.812+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:46:03.820+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:46:03.829+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:46:03.829+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:46:03.834+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:46:03.834+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:46:03.843+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.034 seconds
+[2025-08-02T22:46:34.461+0000] {processor.py:161} INFO - Started process (PID=10459) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:46:34.462+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:46:34.463+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:46:34.463+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:46:34.470+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:46:34.479+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:46:34.479+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:46:34.484+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:46:34.484+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:46:34.491+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.032 seconds
+[2025-08-02T22:47:05.565+0000] {processor.py:161} INFO - Started process (PID=10521) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:47:05.567+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:47:05.569+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:47:05.568+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:47:05.574+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:47:05.586+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:47:05.586+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:47:05.591+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:47:05.591+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:47:05.600+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.039 seconds
+[2025-08-02T22:47:36.442+0000] {processor.py:161} INFO - Started process (PID=10583) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:47:36.442+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:47:36.444+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:47:36.444+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:47:36.447+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:47:36.456+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:47:36.456+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:47:36.461+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:47:36.461+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:47:36.468+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.028 seconds
+[2025-08-02T22:48:07.253+0000] {processor.py:161} INFO - Started process (PID=10645) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:48:07.253+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:48:07.254+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:48:07.254+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:48:07.259+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:48:07.268+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:48:07.268+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:48:07.273+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:48:07.273+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:48:07.282+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.031 seconds
+[2025-08-02T22:48:38.148+0000] {processor.py:161} INFO - Started process (PID=10707) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:48:38.151+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:48:38.153+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:48:38.153+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:48:38.157+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:48:38.166+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:48:38.166+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:48:38.171+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:48:38.170+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:48:38.178+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.032 seconds
+[2025-08-02T22:49:08.980+0000] {processor.py:161} INFO - Started process (PID=10769) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:49:08.981+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:49:08.982+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:49:08.982+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:49:08.986+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:49:08.999+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:49:08.998+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:49:09.007+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:49:09.007+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:49:09.019+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.040 seconds
+[2025-08-02T22:49:39.802+0000] {processor.py:161} INFO - Started process (PID=10831) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:49:39.802+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:49:39.804+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:49:39.803+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:49:39.808+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:49:39.817+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:49:39.817+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:49:39.822+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:49:39.822+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:49:39.831+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.031 seconds
+[2025-08-02T22:50:10.525+0000] {processor.py:161} INFO - Started process (PID=10893) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:50:10.526+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:50:10.527+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:50:10.527+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:50:10.535+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:50:10.547+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:50:10.547+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:50:10.553+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:50:10.553+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:50:10.562+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.039 seconds
+[2025-08-02T22:50:41.322+0000] {processor.py:161} INFO - Started process (PID=10955) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:50:41.323+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:50:41.324+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:50:41.324+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:50:41.333+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:50:41.342+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:50:41.342+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:50:41.346+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:50:41.346+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:50:41.356+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.037 seconds
+[2025-08-02T22:51:12.045+0000] {processor.py:161} INFO - Started process (PID=11017) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:51:12.045+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:51:12.047+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:51:12.047+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:51:12.050+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:51:12.061+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:51:12.061+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:51:12.066+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:51:12.066+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:51:12.073+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.030 seconds
+[2025-08-02T22:51:42.688+0000] {processor.py:161} INFO - Started process (PID=11079) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:51:42.688+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:51:42.690+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:51:42.690+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:51:42.693+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:51:42.703+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:51:42.703+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:51:42.709+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:51:42.709+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:51:42.716+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.030 seconds
+[2025-08-02T22:52:13.456+0000] {processor.py:161} INFO - Started process (PID=11141) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:52:13.456+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:52:13.457+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:52:13.457+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:52:13.461+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:52:13.474+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:52:13.473+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:52:13.479+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:52:13.479+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:52:13.488+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.034 seconds
+[2025-08-02T22:52:44.200+0000] {processor.py:161} INFO - Started process (PID=11203) to work on /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:52:44.200+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dit_uq_stage0_simple.py for tasks to queue
+[2025-08-02T22:52:44.201+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:52:44.201+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:52:44.205+0000] {processor.py:840} INFO - DAG(s) 'dit_uq_stage0_simple' retrieved from /opt/airflow/dags/dit_uq_stage0_simple.py
+[2025-08-02T22:52:44.217+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:52:44.217+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-08-02T22:52:44.223+0000] {logging_mixin.py:188} INFO - [2025-08-02T22:52:44.223+0000] {dag.py:3823} INFO - Setting next_dagrun for dit_uq_stage0_simple to None, run_after=None
+[2025-08-02T22:52:44.232+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dit_uq_stage0_simple.py took 0.035 seconds

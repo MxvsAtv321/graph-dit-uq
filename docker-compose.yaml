@@ -319,5 +319,25 @@ services:
       start_period: 30s
     restart: always
 
+  # DiffDock-L GPU service for high-fidelity docking
+  diffdock-l:
+    image: molecule-ai-base:latest
+    ports:
+      - "9100:9100"
+    entrypoint: []
+    command: ["python", "-m", "uvicorn", "src.services.diffdock_l_service:app", "--host", "0.0.0.0", "--port", "9100"]
+    volumes:
+      - ${AIRFLOW_PROJ_DIR:-.}/src:/app/src
+      - ${AIRFLOW_PROJ_DIR:-.}/data:/data
+    environment:
+      - CUDA_VISIBLE_DEVICES=1
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:9100/live"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    restart: always
+
 volumes:
   postgres-db-volume:
