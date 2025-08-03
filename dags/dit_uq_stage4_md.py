@@ -32,7 +32,7 @@ dag = DAG(
 )
 
 # Airflow variables
-airflow_data = Variable.get("AIRFLOW_DATA_PATH", "/opt/airflow/data")
+airflow_data = Variable.get("AIRFLOW_DATA_PATH", "/data")
 
 ############################################
 # TASK 1: Select top ligands for MD
