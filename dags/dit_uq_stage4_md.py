@@ -33,48 +33,43 @@ dag = DAG(
 
 # Airflow variables
 import os
-airflow_data = Variable.get("AIRFLOW_DATA_PATH", os.path.join(os.getcwd(), "data"))
+airflow_data = Variable.get("AIRFLOW_DATA_PATH", "/data")
 
 ############################################
 # TASK 1: Select top ligands for MD
 ############################################
-select_ligands = DockerOperator(
+def select_top_ligands():
+    """Select top 20 ligands by physics reward for MD validation."""
+    import pandas as pd
+    import os
+    
+    # Read Stage 3 results
+    df = pd.read_parquet('/data/stage3_results.parquet')
+    print(f"📊 Total molecules: {len(df)}")
+    
+    # Select top 20 by physics reward
+    top_ligands = df.nlargest(20, 'physics_reward').copy()
+    top_ligands['selection_rank'] = range(1, 21)
+    top_ligands['md_validation_ready'] = True
+    
+    # Save selected ligands
+    output_file = '/data/top20_md_validation.csv'
+    top_ligands.to_csv(output_file, index=False)
+    
+    print(f"✅ Selected {len(top_ligands)} ligands for MD validation")
+    print(f"📁 Saved to: {output_file}")
+    
+    # Print top 5
+    print("\n🏆 TOP 5 LIGANDS FOR MD:")
+    for i, (idx, row) in enumerate(top_ligands.head(5).iterrows(), 1):
+        print(f"{i}. {row['smiles']}")
+        print(f"   Physics: {row['physics_reward']:.4f}, Conf: {row['diffdock_confidence']:.4f}")
+    
+    return "success"
+
+select_ligands = PythonOperator(
     task_id='select_ligands',
-    image='molecule-ai-base:latest',
-    api_version='auto',
-    auto_remove=True,
-    mount_tmp_dir=False,
-    command=['python', '-c', '''
-import pandas as pd
-import os
-
-# Read Stage 3 results
-df = pd.read_parquet('/data/stage3_results.parquet')
-print(f"📊 Total molecules: {len(df)}")
-
-# Select top 20 by physics reward
-top_ligands = df.nlargest(20, 'physics_reward').copy()
-top_ligands['selection_rank'] = range(1, 21)
-top_ligands['md_validation_ready'] = True
-
-# Save selected ligands
-output_file = '/data/top20_md_validation.csv'
-top_ligands.to_csv(output_file, index=False)
-
-print(f"✅ Selected {len(top_ligands)} ligands for MD validation")
-print(f"📁 Saved to: {output_file}")
-
-# Print top 5
-print("\\n🏆 TOP 5 LIGANDS FOR MD:")
-for i, (idx, row) in enumerate(top_ligands.head(5).iterrows(), 1):
-    print(f"{i}. {row['smiles']}")
-    print(f"   Physics: {row['physics_reward']:.4f}, Conf: {row['diffdock_confidence']:.4f}")
-'''],
-    docker_url='unix://var/run/docker.sock',
-    network_mode='bridge',
-    mounts=[
-        {'source': airflow_data, 'target': '/data', 'type': 'bind'}
-    ],
+    python_callable=select_top_ligands,
     dag=dag,
 )
 
