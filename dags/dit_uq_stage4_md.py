@@ -309,12 +309,12 @@ def generate_hit_table():
     
     # Generate summary report
     summary = {
-        'total_ligands': len(df),
-        'stable_ligands': df['md_stable'].sum(),
-        'hit_ligands': len(hits),
-        'hit_rate': len(hits) / len(df) * 100,
-        'avg_physics_reward': df['physics_reward'].mean(),
-        'avg_stability_score': df['stability_score'].mean(),
+        'total_ligands': int(len(df)),
+        'stable_ligands': int(df['md_stable'].sum()),
+        'hit_ligands': int(len(hits)),
+        'hit_rate': float(len(hits) / len(df) * 100),
+        'avg_physics_reward': float(df['physics_reward'].mean()),
+        'avg_stability_score': float(df['stability_score'].mean()),
         'generation_date': datetime.now().isoformat(),
         'stage': 'Stage 4 - MD Validation'
     }
