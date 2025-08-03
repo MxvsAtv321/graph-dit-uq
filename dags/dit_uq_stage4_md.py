@@ -194,170 +194,159 @@ run_md_simulations = PythonOperator(
 ############################################
 # TASK 4: Analyze MD trajectories
 ############################################
-analyze_md_trajectories = DockerOperator(
-    task_id='analyze_md_trajectories',
-    image='molecule-ai-base:latest',
-    api_version='auto',
-    auto_remove=True,
-    mount_tmp_dir=False,
-    command=['python', '-c', '''
-import pandas as pd
-import os
-import numpy as np
-
-# Read selected ligands
-df = pd.read_csv('/data/top20_md_validation.csv')
-md_dir = '/data/md_validation'
-
-print(f"📊 Analyzing MD trajectories for {len(df)} ligands...")
-
-# Collect analysis results
-md_results = []
-
-for i, (idx, row) in enumerate(df.iterrows(), 1):
-    ligand_dir = os.path.join(md_dir, f"ligand_{i:02d}")
-    analysis_file = os.path.join(ligand_dir, 'md_analysis.csv')
+def analyze_md_trajectories():
+    """Analyze MD trajectories and calculate stability metrics."""
+    import pandas as pd
+    import os
+    import numpy as np
     
-    if os.path.exists(analysis_file):
-        analysis_df = pd.read_csv(analysis_file)
+    # Read selected ligands
+    df = pd.read_csv('/data/top20_md_validation.csv')
+    md_dir = '/data/md_validation'
+    
+    print(f"📊 Analyzing MD trajectories for {len(df)} ligands...")
+    
+    # Collect analysis results
+    md_results = []
+    
+    for i, (idx, row) in enumerate(df.iterrows(), 1):
+        ligand_dir = os.path.join(md_dir, f"ligand_{i:02d}")
+        analysis_file = os.path.join(ligand_dir, 'md_analysis.csv')
         
-        # Calculate stability metrics
-        avg_rmsd = analysis_df['rmsd'].mean()
-        max_rmsd = analysis_df['rmsd'].max()
-        avg_energy = analysis_df['energy'].mean()
-        energy_std = analysis_df['energy'].std()
-        
-        # Stability score (lower RMSD = more stable)
-        stability_score = 1.0 / (1.0 + avg_rmsd)
-        
-        md_results.append({
-            'ligand_id': f"ligand_{i:02d}",
-            'smiles': row['smiles'],
-            'physics_reward': row['physics_reward'],
-            'diffdock_confidence': row['diffdock_confidence'],
-            'avg_rmsd': avg_rmsd,
-            'max_rmsd': max_rmsd,
-            'avg_energy': avg_energy,
-            'energy_std': energy_std,
-            'stability_score': stability_score,
-            'md_stable': avg_rmsd < 2.0  # Threshold for stability
-        })
-        
-        print(f"  Analyzed ligand {i}: RMSD={avg_rmsd:.3f}, Stable={avg_rmsd < 2.0}")
+        if os.path.exists(analysis_file):
+            analysis_df = pd.read_csv(analysis_file)
+            
+            # Calculate stability metrics
+            avg_rmsd = analysis_df['rmsd'].mean()
+            max_rmsd = analysis_df['rmsd'].max()
+            avg_energy = analysis_df['energy'].mean()
+            energy_std = analysis_df['energy'].std()
+            
+            # Stability score (lower RMSD = more stable)
+            stability_score = 1.0 / (1.0 + avg_rmsd)
+            
+            md_results.append({
+                'ligand_id': f"ligand_{i:02d}",
+                'smiles': row['smiles'],
+                'physics_reward': row['physics_reward'],
+                'diffdock_confidence': row['diffdock_confidence'],
+                'avg_rmsd': avg_rmsd,
+                'max_rmsd': max_rmsd,
+                'avg_energy': avg_energy,
+                'energy_std': energy_std,
+                'stability_score': stability_score,
+                'md_stable': avg_rmsd < 2.0  # Threshold for stability
+            })
+            
+            print(f"  Analyzed ligand {i}: RMSD={avg_rmsd:.3f}, Stable={avg_rmsd < 2.0}")
+    
+    # Create results dataframe
+    results_df = pd.DataFrame(md_results)
+    
+    # Save comprehensive results
+    results_file = '/data/md_validation_results.csv'
+    results_df.to_csv(results_file, index=False)
+    
+    # Generate summary
+    stable_count = results_df['md_stable'].sum()
+    avg_stability = results_df['stability_score'].mean()
+    
+    print(f"\n📈 MD VALIDATION SUMMARY:")
+    print(f"✅ Stable ligands: {stable_count}/{len(results_df)} ({stable_count/len(results_df)*100:.1f}%)")
+    print(f"📊 Average stability score: {avg_stability:.3f}")
+    print(f"📁 Results saved to: {results_file}")
+    
+    # Print top stable ligands
+    print(f"\n🏆 TOP 5 STABLE LIGANDS:")
+    top_stable = results_df.nlargest(5, 'stability_score')
+    for i, (idx, row) in enumerate(top_stable.iterrows(), 1):
+        print(f"{i}. {row['smiles']}")
+        print(f"   Stability: {row['stability_score']:.3f}, RMSD: {row['avg_rmsd']:.3f}")
+        print(f"   Physics: {row['physics_reward']:.4f}, Conf: {row['diffdock_confidence']:.4f}")
+        print()
+    
+    return "success"
 
-# Create results dataframe
-results_df = pd.DataFrame(md_results)
-
-# Save comprehensive results
-results_file = '/data/md_validation_results.csv'
-results_df.to_csv(results_file, index=False)
-
-# Generate summary
-stable_count = results_df['md_stable'].sum()
-avg_stability = results_df['stability_score'].mean()
-
-print(f"\\n📈 MD VALIDATION SUMMARY:")
-print(f"✅ Stable ligands: {stable_count}/{len(results_df)} ({stable_count/len(results_df)*100:.1f}%)")
-print(f"📊 Average stability score: {avg_stability:.3f}")
-print(f"📁 Results saved to: {results_file}")
-
-# Print top stable ligands
-print(f"\\n🏆 TOP 5 STABLE LIGANDS:")
-top_stable = results_df.nlargest(5, 'stability_score')
-for i, (idx, row) in enumerate(top_stable.iterrows(), 1):
-    print(f"{i}. {row['smiles']}")
-    print(f"   Stability: {row['stability_score']:.3f}, RMSD: {row['avg_rmsd']:.3f}")
-    print(f"   Physics: {row['physics_reward']:.4f}, Conf: {row['diffdock_confidence']:.4f}")
-    print()
-'''],
-    docker_url='unix://var/run/docker.sock',
-    network_mode='bridge',
-    mounts=[
-        {'source': airflow_data, 'target': '/data', 'type': 'bind'}
-    ],
+analyze_md_trajectories = PythonOperator(
+    task_id='analyze_md_trajectories',
+    python_callable=analyze_md_trajectories,
     dag=dag,
 )
 
 ############################################
 # TASK 5: Generate hit table
 ############################################
-generate_hit_table = DockerOperator(
+def generate_hit_table():
+    """Generate final hit table with composite scoring."""
+    import pandas as pd
+    import os
+    from datetime import datetime
+    
+    # Read MD validation results
+    df = pd.read_csv('/data/md_validation_results.csv')
+    
+    print(f"📋 Generating hit table for {len(df)} validated ligands...")
+    
+    # Define hit criteria
+    def is_hit(row):
+        return (row['physics_reward'] > 0.5 and
+                row['diffdock_confidence'] > 0.4 and
+                row['md_stable'] == True)
+    
+    # Apply hit criteria
+    df['is_hit'] = df.apply(is_hit, axis=1)
+    hits = df[df['is_hit']].copy()
+    
+    # Sort hits by composite score
+    hits['composite_score'] = (0.4 * hits['physics_reward'] +
+                               0.3 * hits['diffdock_confidence'] +
+                               0.3 * hits['stability_score'])
+    hits = hits.sort_values('composite_score', ascending=False)
+    
+    # Generate hit table
+    hit_table_file = '/data/hit_table_stage4.csv'
+    hits.to_csv(hit_table_file, index=False)
+    
+    # Generate summary report
+    summary = {
+        'total_ligands': len(df),
+        'stable_ligands': df['md_stable'].sum(),
+        'hit_ligands': len(hits),
+        'hit_rate': len(hits) / len(df) * 100,
+        'avg_physics_reward': df['physics_reward'].mean(),
+        'avg_stability_score': df['stability_score'].mean(),
+        'generation_date': datetime.now().isoformat(),
+        'stage': 'Stage 4 - MD Validation'
+    }
+    
+    # Save summary
+    summary_file = '/data/stage4_summary.json'
+    import json
+    with open(summary_file, 'w') as f:
+        json.dump(summary, f, indent=2)
+    
+    print(f"\n🎯 HIT TABLE SUMMARY:")
+    print(f"📊 Total ligands: {summary['total_ligands']}")
+    print(f"🔬 Stable ligands: {summary['stable_ligands']}")
+    print(f"🏆 Hit ligands: {summary['hit_ligands']}")
+    print(f"📈 Hit rate: {summary['hit_rate']:.1f}%")
+    
+    if len(hits) > 0:
+        print(f"\n🏆 TOP 5 HITS:")
+        for i, (idx, row) in enumerate(hits.head(5).iterrows(), 1):
+            print(f"{i}. {row['smiles']}")
+            print(f"   Composite: {row['composite_score']:.3f}")
+            print(f"   Physics: {row['physics_reward']:.4f}, Conf: {row['diffdock_confidence']:.4f}")
+            print(f"   Stability: {row['stability_score']:.3f}, RMSD: {row['avg_rmsd']:.3f}")
+            print()
+    
+    print(f"📁 Hit table saved to: {hit_table_file}")
+    print(f"📄 Summary saved to: {summary_file}")
+    return "success"
+
+generate_hit_table = PythonOperator(
     task_id='generate_hit_table',
-    image='molecule-ai-base:latest',
-    api_version='auto',
-    auto_remove=True,
-    mount_tmp_dir=False,
-    command=['python', '-c', '''
-import pandas as pd
-import os
-from datetime import datetime
-
-# Read MD validation results
-df = pd.read_csv('/data/md_validation_results.csv')
-
-print(f"📋 Generating hit table for {len(df)} validated ligands...")
-
-# Define hit criteria
-def is_hit(row):
-    return (row['physics_reward'] > 0.5 and 
-            row['diffdock_confidence'] > 0.4 and 
-            row['md_stable'] == True)
-
-# Apply hit criteria
-df['is_hit'] = df.apply(is_hit, axis=1)
-hits = df[df['is_hit']].copy()
-
-# Sort hits by composite score
-hits['composite_score'] = (0.4 * hits['physics_reward'] + 
-                          0.3 * hits['diffdock_confidence'] + 
-                          0.3 * hits['stability_score'])
-hits = hits.sort_values('composite_score', ascending=False)
-
-# Generate hit table
-hit_table_file = '/data/hit_table_stage4.csv'
-hits.to_csv(hit_table_file, index=False)
-
-# Generate summary report
-summary = {
-    'total_ligands': len(df),
-    'stable_ligands': df['md_stable'].sum(),
-    'hit_ligands': len(hits),
-    'hit_rate': len(hits) / len(df) * 100,
-    'avg_physics_reward': df['physics_reward'].mean(),
-    'avg_stability_score': df['stability_score'].mean(),
-    'generation_date': datetime.now().isoformat(),
-    'stage': 'Stage 4 - MD Validation'
-}
-
-# Save summary
-summary_file = '/data/stage4_summary.json'
-import json
-with open(summary_file, 'w') as f:
-    json.dump(summary, f, indent=2)
-
-print(f"\\n🎯 HIT TABLE SUMMARY:")
-print(f"📊 Total ligands: {summary['total_ligands']}")
-print(f"🔬 Stable ligands: {summary['stable_ligands']}")
-print(f"🏆 Hit ligands: {summary['hit_ligands']}")
-print(f"📈 Hit rate: {summary['hit_rate']:.1f}%")
-
-if len(hits) > 0:
-    print(f"\\n🏆 TOP 5 HITS:")
-    for i, (idx, row) in enumerate(hits.head(5).iterrows(), 1):
-        print(f"{i}. {row['smiles']}")
-        print(f"   Composite: {row['composite_score']:.3f}")
-        print(f"   Physics: {row['physics_reward']:.4f}, Conf: {row['diffdock_confidence']:.4f}")
-        print(f"   Stability: {row['stability_score']:.3f}, RMSD: {row['avg_rmsd']:.3f}")
-        print()
-
-print(f"📁 Hit table saved to: {hit_table_file}")
-print(f"📄 Summary saved to: {summary_file}")
-'''],
-    docker_url='unix://var/run/docker.sock',
-    network_mode='bridge',
-    mounts=[
-        {'source': airflow_data, 'target': '/data', 'type': 'bind'}
-    ],
+    python_callable=generate_hit_table,
     dag=dag,
 )
 
