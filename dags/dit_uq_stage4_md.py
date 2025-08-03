@@ -76,49 +76,43 @@ select_ligands = PythonOperator(
 ############################################
 # TASK 2: Prepare protein-ligand complexes
 ############################################
-prepare_complexes = DockerOperator(
+def prepare_protein_ligand_complexes():
+    """Prepare protein-ligand complexes for MD validation."""
+    import pandas as pd
+    import os
+    import subprocess
+    
+    # Read selected ligands
+    df = pd.read_csv('/data/top20_md_validation.csv')
+    print(f"🔬 Preparing {len(df)} protein-ligand complexes...")
+    
+    # Create MD directory
+    md_dir = '/data/md_validation'
+    os.makedirs(md_dir, exist_ok=True)
+    
+    # Mock complex preparation (in real implementation, use actual protein prep)
+    for i, (idx, row) in enumerate(df.iterrows(), 1):
+        ligand_dir = os.path.join(md_dir, f"ligand_{i:02d}")
+        os.makedirs(ligand_dir, exist_ok=True)
+        
+        # Save ligand SMILES
+        with open(os.path.join(ligand_dir, 'ligand.smi'), 'w') as f:
+            f.write(f"{row['smiles']}\tligand_{i}\n")
+        
+        # Mock protein-ligand complex file
+        with open(os.path.join(ligand_dir, 'complex.pdb'), 'w') as f:
+            f.write(f"# Mock complex for {row['smiles']}\n")
+            f.write(f"# Physics reward: {row['physics_reward']:.4f}\n")
+            f.write(f"# DiffDock confidence: {row['diffdock_confidence']:.4f}\n")
+        
+        print(f"  Prepared complex {i}/20: {row['smiles'][:30]}...")
+    
+    print(f"✅ Prepared {len(df)} complexes in {md_dir}")
+    return "success"
+
+prepare_complexes = PythonOperator(
     task_id='prepare_complexes',
-    image='molecule-ai-base:latest',
-    api_version='auto',
-    auto_remove=True,
-    mount_tmp_dir=False,
-    command=['python', '-c', '''
-import pandas as pd
-import os
-import subprocess
-
-# Read selected ligands
-df = pd.read_csv('/data/top20_md_validation.csv')
-print(f"🔬 Preparing {len(df)} protein-ligand complexes...")
-
-# Create MD directory
-md_dir = '/data/md_validation'
-os.makedirs(md_dir, exist_ok=True)
-
-# Mock complex preparation (in real implementation, use actual protein prep)
-for i, (idx, row) in enumerate(df.iterrows(), 1):
-    ligand_dir = os.path.join(md_dir, f"ligand_{i:02d}")
-    os.makedirs(ligand_dir, exist_ok=True)
-    
-    # Save ligand SMILES
-    with open(os.path.join(ligand_dir, 'ligand.smi'), 'w') as f:
-        f.write(f"{row['smiles']}\\tligand_{i}\\n")
-    
-    # Mock protein-ligand complex file
-    with open(os.path.join(ligand_dir, 'complex.pdb'), 'w') as f:
-        f.write(f"# Mock complex for {row['smiles']}\\n")
-        f.write(f"# Physics reward: {row['physics_reward']:.4f}\\n")
-        f.write(f"# DiffDock confidence: {row['diffdock_confidence']:.4f}\\n")
-    
-    print(f"  Prepared complex {i}/20: {row['smiles'][:30]}...")
-
-print(f"✅ Prepared {len(df)} complexes in {md_dir}")
-'''],
-    docker_url='unix://var/run/docker.sock',
-    network_mode='bridge',
-    mounts=[
-        {'source': airflow_data, 'target': '/data', 'type': 'bind'}
-    ],
+    python_callable=prepare_protein_ligand_complexes,
     dag=dag,
 )
 
