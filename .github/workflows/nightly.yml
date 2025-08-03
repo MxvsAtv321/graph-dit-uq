@@ -1,0 +1,129 @@
+name: Nightly DAG Regression Tests
+
+on:
+  schedule:
+    # Run every day at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    # Allow manual triggering
+
+jobs:
+  test-stage1-dag:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        dag_id: ["dit_uq_stage1"]
+        execution_date: [${{ github.event.inputs.execution_date || format(github.event.schedule, 'YYYY-MM-DD') }}]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install docker-compose requests
+        
+    - name: Start Airflow services
+      run: |
+        # Start Airflow with Docker Compose
+        docker-compose up -d
+        
+        # Wait for services to be ready
+        sleep 60
+        
+        # Check service health
+        docker-compose ps
+        
+    - name: Wait for Airflow to be ready
+      run: |
+        # Wait for Airflow webserver
+        timeout 300 bash -c 'until curl -f http://localhost:8080/health; do sleep 10; done'
+        
+    - name: Trigger DAG with configuration
+      run: |
+        # Trigger the DAG with specific configuration
+        curl -X POST \
+          -H "Content-Type: application/json" \
+          -d '{"conf": {"n_mols": 64}}' \
+          http://localhost:8080/api/v1/dags/dit_uq_stage1/dagRuns
+          
+    - name: Wait for DAG completion
+      run: |
+        # Wait for DAG to complete (with timeout)
+        timeout 1800 bash -c '
+          while true; do
+            status=$(curl -s http://localhost:8080/api/v1/dags/dit_uq_stage1/dagRuns | jq -r ".dag_runs[0].state")
+            echo "DAG status: $status"
+            if [ "$status" = "success" ]; then
+              echo "DAG completed successfully"
+              break
+            elif [ "$status" = "failed" ]; then
+              echo "DAG failed"
+              exit 1
+            fi
+            sleep 30
+          done
+        '
+        
+    - name: Download artifacts
+      run: |
+        # Download the results file
+        docker cp $(docker-compose ps -q airflow-worker):/data/stage1_results.json ./stage1_results.json
+        
+    - name: Validate results
+      run: |
+        # Basic validation of results
+        python -c "
+        import json
+        import sys
+        
+        with open('stage1_results.json', 'r') as f:
+            data = json.load(f)
+            
+        # Check basic requirements
+        assert len(data['smiles']) >= 50, f'Too few molecules: {len(data[\"smiles\"])}'
+        assert data['invalid_fraction'] <= 0.02, f'Too many invalid SMILES: {data[\"invalid_fraction\"]}'
+        assert 'uq_predictions' in data, 'Missing UQ predictions'
+        assert 'docking_results' in data, 'Missing docking results'
+        assert 'validation_summary' in data, 'Missing validation summary'
+        
+        print('✅ All validation checks passed')
+        print(f'Generated {len(data[\"smiles\"])} molecules')
+        print(f'Invalid fraction: {data[\"invalid_fraction\"]:.2%}')
+        print(f'Pipeline version: {data[\"pipeline_version\"]}')
+        "
+        
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: stage1-results-${{ matrix.execution_date }}
+        path: |
+          stage1_results.json
+          logs/
+          
+    - name: Cleanup
+      if: always()
+      run: |
+        docker-compose down -v
+        
+    - name: Notify on failure
+      if: failure()
+      run: |
+        echo "❌ Nightly DAG test failed for ${{ matrix.dag_id }} on ${{ matrix.execution_date }}"
+        # Add Slack/Teams webhook notification here
+        # curl -X POST -H 'Content-type: application/json' \
+        #   --data '{"text":"❌ Nightly DAG test failed"}' \
+        #   ${{ secrets.SLACK_WEBHOOK_URL }}
+        
+    - name: Notify on success
+      if: success()
+      run: |
+        echo "✅ Nightly DAG test passed for ${{ matrix.dag_id }} on ${{ matrix.execution_date }}"
+        # Add success notification here 

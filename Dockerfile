@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install Python packages for molecular AI (without CUDA dependencies)
 RUN pip install --no-cache-dir \
-    torch \
+    torch==2.3.0 \
     torchvision \
     torchaudio \
     pandas \
@@ -20,7 +20,10 @@ RUN pip install --no-cache-dir \
     requests \
     pyyaml \
     rdkit-pypi \
-    wandb
+    wandb \
+    protobuf==4.25.0 \
+    fastapi \
+    uvicorn
 
 # Create working directory
 WORKDIR /app
