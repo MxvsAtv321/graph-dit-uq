@@ -14,18 +14,20 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install PyTorch first
+      - name: Install PyTorch and core dependencies first
         run: |
           python -m pip install --upgrade pip
+          # Install PyTorch first (CPU-only for speed)
           pip install torch==2.0.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-
-      - name: Install PyTorch Geometric dependencies
-        run: |
+          # Install PyG packages with pre-built wheels
           pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-2.0.1+cpu.html
 
-      - name: Install remaining dependencies
+      - name: Install remaining dependencies (skip problematic ones)
         run: |
-          pip install -r requirements-ci.txt
+          # Install only essential packages for CI tests
+          pip install numpy pandas matplotlib seaborn pytest
+          pip install rdkit-pypi  # Use PyPI version instead of conda
+          pip install wandb tqdm PyYAML
 
       - name: Run basic tests
         run: |
