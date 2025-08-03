@@ -119,81 +119,75 @@ prepare_complexes = PythonOperator(
 ############################################
 # TASK 3: Run MD simulations
 ############################################
-run_md_simulations = DockerOperator(
+def run_md_simulations():
+    """Run MD simulations for all ligands."""
+    import pandas as pd
+    import os
+    import time
+    import random
+    import subprocess
+    from datetime import datetime
+    
+    # Read selected ligands
+    df = pd.read_csv('/data/top20_md_validation.csv')
+    md_dir = '/data/md_validation'
+    run_id = os.environ.get('AIRFLOW_RUN_ID', 'stage4_md_' + datetime.now().strftime('%Y%m%d_%H%M'))
+    
+    print(f"🚀 Starting MD simulations for {len(df)} ligands...")
+    print(f"📁 Run ID: {run_id}")
+    
+    # Mock MD simulation (in real implementation, use OpenMM/Amber)
+    for i, (idx, row) in enumerate(df.iterrows(), 1):
+        ligand_dir = os.path.join(md_dir, f"ligand_{i:02d}")
+        
+        print(f"  Running MD for ligand {i}/20: {row['smiles'][:30]}...")
+        
+        # Mock simulation time
+        time.sleep(0.1)  # Simulate computation
+        
+        # Generate mock trajectory data
+        trajectory_file = os.path.join(ligand_dir, 'trajectory.dcd')
+        with open(trajectory_file, 'w') as f:
+            f.write(f"# Mock MD trajectory for {row['smiles']}\n")
+            f.write(f"# 5 ns simulation with 200 ps intervals\n")
+            f.write(f"# Physics reward: {row['physics_reward']:.4f}\n")
+            f.write(f"# Run ID: {run_id}\n")
+        
+        # SAFETY SAFEGUARD 1: Upload trajectory to S3 immediately
+        try:
+            s3_path = f"s3://dit-uq-artifacts/stage4/{run_id}/ligand_{i:02d}_trajectory.dcd"
+            upload_cmd = f"aws s3 cp {trajectory_file} {s3_path}"
+            print(f"    📤 Uploading trajectory to S3: {s3_path}")
+            # subprocess.run(upload_cmd, shell=True, check=True)  # Uncomment for real S3 upload
+            print(f"    ✅ Trajectory uploaded successfully")
+        except Exception as e:
+            print(f"    ⚠️  S3 upload failed: {e}")
+        
+        # SAFETY SAFEGUARD 2: Early-exit sanity check (500 ps)
+        early_rmsd = random.uniform(0.2, 1.5)  # Mock early RMSD
+        if early_rmsd > 0.8:  # 8 Å threshold
+            print(f"    🚨 Early exit: ligand flew away (RMSD: {early_rmsd:.3f} nm)")
+            print(f"    ⏹️  Terminating simulation for ligand {i}")
+            continue
+        
+        # Generate mock analysis results
+        analysis_file = os.path.join(ligand_dir, 'md_analysis.csv')
+        analysis_data = {
+            'frame': range(0, 5000, 200),
+            'rmsd': [random.uniform(0.5, 2.0) for _ in range(25)],
+            'energy': [random.uniform(-50, -30) for _ in range(25)]
+        }
+        pd.DataFrame(analysis_data).to_csv(analysis_file, index=False)
+        
+        print(f"    ✅ MD complete for ligand {i}")
+    
+    print(f"✅ All MD simulations completed")
+    print(f"📊 Run ID: {run_id} - ready for analysis")
+    return "success"
+
+run_md_simulations = PythonOperator(
     task_id='run_md_simulations',
-    image='molecule-ai-base:latest',
-    api_version='auto',
-    auto_remove=True,
-    mount_tmp_dir=False,
-    command=['python', '-c', '''
-import pandas as pd
-import os
-import time
-import random
-import subprocess
-from datetime import datetime
-
-# Read selected ligands
-df = pd.read_csv('/data/top20_md_validation.csv')
-md_dir = '/data/md_validation'
-run_id = os.environ.get('AIRFLOW_RUN_ID', 'stage4_md_' + datetime.now().strftime('%Y%m%d_%H%M'))
-
-print(f"🚀 Starting MD simulations for {len(df)} ligands...")
-print(f"📁 Run ID: {run_id}")
-
-# Mock MD simulation (in real implementation, use OpenMM/Amber)
-for i, (idx, row) in enumerate(df.iterrows(), 1):
-    ligand_dir = os.path.join(md_dir, f"ligand_{i:02d}")
-    
-    print(f"  Running MD for ligand {i}/20: {row['smiles'][:30]}...")
-    
-    # Mock simulation time
-    time.sleep(0.1)  # Simulate computation
-    
-    # Generate mock trajectory data
-    trajectory_file = os.path.join(ligand_dir, 'trajectory.dcd')
-    with open(trajectory_file, 'w') as f:
-        f.write(f"# Mock MD trajectory for {row['smiles']}\\n")
-        f.write(f"# 5 ns simulation with 200 ps intervals\\n")
-        f.write(f"# Physics reward: {row['physics_reward']:.4f}\\n")
-        f.write(f"# Run ID: {run_id}\\n")
-    
-    # SAFETY SAFEGUARD 1: Upload trajectory to S3 immediately
-    try:
-        s3_path = f"s3://dit-uq-artifacts/stage4/{run_id}/ligand_{i:02d}_trajectory.dcd"
-        upload_cmd = f"aws s3 cp {trajectory_file} {s3_path}"
-        print(f"    📤 Uploading trajectory to S3: {s3_path}")
-        # subprocess.run(upload_cmd, shell=True, check=True)  # Uncomment for real S3 upload
-        print(f"    ✅ Trajectory uploaded successfully")
-    except Exception as e:
-        print(f"    ⚠️  S3 upload failed: {e}")
-    
-    # SAFETY SAFEGUARD 2: Early-exit sanity check (500 ps)
-    early_rmsd = random.uniform(0.2, 1.5)  # Mock early RMSD
-    if early_rmsd > 0.8:  # 8 Å threshold
-        print(f"    🚨 Early exit: ligand flew away (RMSD: {early_rmsd:.3f} nm)")
-        print(f"    ⏹️  Terminating simulation for ligand {i}")
-        continue
-    
-    # Generate mock analysis results
-    analysis_file = os.path.join(ligand_dir, 'md_analysis.csv')
-    analysis_data = {
-        'frame': range(0, 5000, 200),
-        'rmsd': [random.uniform(0.5, 2.0) for _ in range(25)],
-        'energy': [random.uniform(-50, -30) for _ in range(25)]
-    }
-    pd.DataFrame(analysis_data).to_csv(analysis_file, index=False)
-    
-    print(f"    ✅ MD complete for ligand {i}")
-
-print(f"✅ All MD simulations completed")
-print(f"📊 Run ID: {run_id} - ready for analysis")
-'''],
-    docker_url='unix://var/run/docker.sock',
-    network_mode='bridge',
-    mounts=[
-        {'source': airflow_data, 'target': '/data', 'type': 'bind'}
-    ],
+    python_callable=run_md_simulations,
     dag=dag,
 )
 
