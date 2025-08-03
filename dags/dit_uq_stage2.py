@@ -50,51 +50,70 @@ rl_checkpoint_path = Variable.get("RL_CHECKPOINT_PATH", "/data/checkpoints/graph
 hard_negatives_path = Variable.get("HARD_NEGATIVES_PATH", "/data/reference/ddr1_hard_negatives.sdf")
 
 # Task 1: Initialize RL environment and load checkpoint
-def initialize_rl_environment(**context):
-    """Initialize RL environment and load checkpoint"""
-    import time
-    start_time = time.time()
-    
-    # Check if checkpoint exists
-    if not os.path.exists(rl_checkpoint_path):
-        raise AirflowFailException(f"RL checkpoint not found: {rl_checkpoint_path}")
-    
-    # Initialize replay buffer and preference sampler
-    from src.rl.samplers import PreferenceSampler
-    
-    sampler = PreferenceSampler(n_objectives=3, warmup_samples=100, mode=pref_mode)
-    
-    # Save initialization state
-    init_state = {
-        'checkpoint_path': rl_checkpoint_path,
-        'reward_type': reward_type,
-        'pref_mode': pref_mode,
-        'n_iterations': n_iterations,
-        'batch_size': batch_size,
-        'initialization_time': datetime.utcnow().isoformat()
-    }
-    
-    with open(f"{airflow_data}/stage2_init_state.json", 'w') as f:
-        json.dump(init_state, f, indent=2)
-    
-    # Emit metrics
-    duration = time.time() - start_time
-    metrics = {
-        'task_id': 'initialize_rl_environment',
-        'duration_s': duration,
-        'checkpoint_size_mb': os.path.getsize(rl_checkpoint_path) / (1024*1024),
-        'reward_type': reward_type,
-        'pref_mode': pref_mode
-    }
-    
-    print(f"METRICS: {json.dumps(metrics)}")
-    print(f"RL environment initialized with {reward_type} reward and {pref_mode} preference sampling")
-    
-    return metrics
-
-initialize_rl = PythonOperator(
+initialize_rl = DockerOperator(
     task_id='initialize_rl_environment',
-    python_callable=initialize_rl_environment,
+    image='molecule-ai-base:latest',
+    api_version='auto',
+    auto_remove=True,
+    command=['python', '-c', f'''
+import sys
+import os
+import json
+import time
+from datetime import datetime
+
+# Add src directory to Python path
+sys.path.insert(0, "/app/src")
+
+start_time = time.time()
+
+# Check if checkpoint exists
+checkpoint_path = "{rl_checkpoint_path}"
+if not os.path.exists(checkpoint_path):
+    raise Exception(f"RL checkpoint not found: {{checkpoint_path}}")
+
+# Initialize preference sampler
+from src.rl.samplers import PreferenceSampler
+
+sampler = PreferenceSampler(n_objectives=3, warmup_samples=100, mode="{pref_mode}")
+
+# Save initialization state
+init_state = {{
+    'checkpoint_path': checkpoint_path,
+    'reward_type': "{reward_type}",
+    'pref_mode': "{pref_mode}",
+    'n_iterations': {n_iterations},
+    'batch_size': {batch_size},
+    'initialization_time': datetime.utcnow().isoformat()
+}}
+
+with open("/data/stage2_init_state.json", 'w') as f:
+    json.dump(init_state, f, indent=2)
+
+# Emit metrics
+duration = time.time() - start_time
+metrics = {{
+    'task_id': 'initialize_rl_environment',
+    'duration_s': duration,
+    'checkpoint_size_mb': os.path.getsize(checkpoint_path) / (1024*1024),
+    'reward_type': "{reward_type}",
+    'pref_mode': "{pref_mode}"
+}}
+
+print(f"METRICS: {{json.dumps(metrics)}}")
+print(f"RL environment initialized with {reward_type} reward and {pref_mode} preference sampling")
+'''],
+    docker_url='unix://var/run/docker.sock',
+    network_mode='bridge',
+    mounts=[
+        {'source': '/Users/mxvsatv321/Documents/graph-dit-uq/data', 'target': '/data', 'type': 'bind'},
+        {'source': '/Users/mxvsatv321/Documents/graph-dit-uq/checkpoints', 'target': '/data/checkpoints', 'type': 'bind'},
+        {'source': '/Users/mxvsatv321/Documents/graph-dit-uq/src', 'target': '/app/src', 'type': 'bind'}
+    ],
+    environment={
+        'AIRFLOW_CTX_DAG_RUN_ID': '{{ run_id }}',
+        'CUDA_VISIBLE_DEVICES': '0'
+    },
     dag=dag,
 )
 

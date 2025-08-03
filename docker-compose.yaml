@@ -287,7 +287,8 @@ services:
     image: molecule-ai-base:latest
     ports:
       - "8000:8000"
-    command: ["uvicorn", "src.services.autognnuq:app", "--host", "0.0.0.0", "--port", "8000"]
+    entrypoint: []
+    command: ["python", "-m", "uvicorn", "src.services.autognnuq:app", "--host", "0.0.0.0", "--port", "8000"]
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}/src:/app/src
     healthcheck:
@@ -303,7 +304,8 @@ services:
     image: molecule-ai-base:latest
     ports:
       - "5678:5678"
-    command: ["python", "src/services/qvina_service.py"]
+    entrypoint: []
+    command: ["python", "-m", "uvicorn", "src.services.qvina_service:app", "--host", "0.0.0.0", "--port", "5678"]
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}/src:/app/src
       - ${AIRFLOW_PROJ_DIR:-.}/data:/data
