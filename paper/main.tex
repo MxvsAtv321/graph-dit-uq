@@ -36,7 +36,7 @@ Our Graph DiT model employs a transformer-based architecture with 8 layers, 8 at
 We implement epistemic uncertainty quantification using MC-Dropout with 5 forward passes. The uncertainty range (0.01-0.2) is integrated into the reward function to guide exploration, providing 7.7\% improvement in reward optimization compared to standard RL approaches.
 
 \subsection{Physics-ML Integration}
-The framework integrates DiffDock-L for high-fidelity docking predictions with a tunable physics weight parameter λ. Our ablation study (λ ∈ \{0.0, 0.2, 0.4, 0.6\}) demonstrates optimal performance at λ = 0.4, achieving mean physics reward of 0.398 and best docking score of -14.94 kcal/mol (Figure 3a).
+The framework integrates DiffDock-L for high-fidelity docking predictions with a tunable physics weight parameter λ. Our ablation study (λ ∈ \{0.0, 0.2, 0.4, 0.6\}) demonstrates optimal performance at λ = 0.4, achieving mean physics reward of 0.398 and best docking score of -14.94 kcal/mol (Figure~\ref{fig:ablation}).
 
 \subsection{Multi-Objective Reinforcement Learning}
 We employ PPO-based optimization with multi-objective rewards balancing QED (0.3), docking (0.5), and SA (0.2) scores. The uncertainty-guided exploration uses epistemic uncertainty as an exploration bonus, enabling 3× faster Pareto frontier discovery compared to baseline methods.
@@ -47,7 +47,7 @@ The complete pipeline includes Stage 1 (model training), Stage 2 (active learnin
 \section{Results}
 
 \subsection{Multi-Objective Optimization Performance}
-Our uncertainty-guided reinforcement learning framework demonstrates superior performance across all metrics. The approach achieves 3.3× improvement in Pareto coverage compared to baseline methods, with 0.10\% of generated molecules being Pareto optimal. The best docking score achieved is -17.0 kcal/mol, while maintaining a QED score of 0.48.
+Our uncertainty-guided reinforcement learning framework demonstrates superior performance across all metrics. The approach achieves 3.3× improvement in Pareto coverage compared to baseline methods, with 0.10\% of generated molecules being Pareto optimal (Figure~\ref{fig:pareto}). The best docking score achieved is -17.0 kcal/mol, while maintaining a QED score of 0.48.
 
 \subsection{Physics-ML Integration Analysis}
 The λ-sweep ablation study reveals optimal performance at λ = 0.4, where physics and ML components are balanced. At this setting, we achieve mean physics reward of 0.398, maximum physics reward of 0.664, and pose confidence > 0.6 for 4.3\% of molecules. The mean QuickVina score is -10.19 kcal/mol, with the best score reaching -14.94 kcal/mol.
@@ -77,6 +77,22 @@ The production-ready pipeline with containerized services enables easy deploymen
 
 \subsection{Broader Impact}
 This work advances the field toward reliable, automated molecular design with quantified uncertainty. The open-source implementation enables community adoption and further development. The framework's success in wet-lab validation demonstrates potential for accelerating drug discovery pipelines.
+
+\section{Figures}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/workshop/ablation_study.png}
+\caption{Lambda sweep ablation study showing optimal performance at λ = 0.4 for physics-ML integration.}
+\label{fig:ablation}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/workshop/pareto_comparison.png}
+\caption{Pareto frontier comparison showing 3.3× improvement in coverage with uncertainty-guided RL.}
+\label{fig:pareto}
+\end{figure}
 
 \section{Conclusion}
 

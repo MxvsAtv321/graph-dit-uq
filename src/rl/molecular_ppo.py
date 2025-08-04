@@ -15,10 +15,10 @@ try:
 except ImportError:
     WANDB_AVAILABLE = False
 
-# Set up logging
-logging.basicConfig(level=logging.INFO)
 import random
 
+# Set up logging
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Set random seeds for reproducibility
