@@ -1,0 +1,8 @@
+# Graph DiT-UQ v0.4.1-camera-ready Checksums
+# Generated: 2025-08-03
+
+# Reproducibility Bundle
+057e5f259f45c2e9772f05edd5ea5d6eabc7137184ebfb28338c608196b088c8  graph-dit-uq_v0.4.1-camera-ready_repro_bundle.zip
+
+# Key Files
+# (Add additional file checksums as needed) 
