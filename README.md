@@ -17,7 +17,7 @@ A research-grade, uncertainty-aware graph-diffusion pipeline for multi-objective
 - **4,514 molecules/second** generation speed
 - **0.14 μg CO₂ per 10k molecules** carbon footprint
 
-## 🔬 Latest Results (Aug 2024)
+## 🔬 Latest Results (Aug 2025)
 
 ### Performance Metrics
 - **Generation Speed**: 4,514 molecules/second
